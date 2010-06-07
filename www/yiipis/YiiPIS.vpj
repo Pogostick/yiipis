@@ -1,0 +1,106 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	WorkingDir="."
+	VCSProject="Subversion:">
+	<Config
+		Name="Debug"
+		DebugCallbackName="xdebug"
+		Type="php"
+		OutputFile=""
+		CompilerConfigName="">
+		<Menu>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_php_options_form Run"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveNone"
+				RunFromDir="%rw"
+				Deletable="0">
+				<Exec
+					CmdLine="php_execute %(SLICKEDIT_PHP_EXECUTE_ARGS)"
+					Type="Slick-C"/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_php_options_form Debug"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveNone"
+				RunFromDir="%rw"
+				Deletable="0">
+				<Exec
+					CmdLine="php_debug"
+					Type="Slick-C"/>
+			</Target>
+			<Target
+				Name="PHP Options"
+				MenuCaption="PHP &amp;Options"
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0">
+				<Exec
+					CmdLine="phpoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<Dependencies Name="Debug">
+			<Dependency Project="../../frameworks/yii-1.1.2/Yii v1.1.2.vpj"/>
+		</Dependencies>
+		<List Name="PHP Options">
+			<Item
+				Name="AppType"
+				Value="web-remote"/>
+			<Item
+				Name="DefaultFile"
+				Value="index.php"/>
+			<Item
+				Name="ScriptArguments"
+				Value=""/>
+			<Item
+				Name="InterpreterArguments"
+				Value=""/>
+			<List Name="Map">
+				<Item
+					Name="RemoteUrl"
+					Value="http://www.yiipis.com"/>
+				<Item
+					Name="LocalRoot"
+					Value="/home/jablan/projects/php/pogostick/YiiPIS/"/>
+			</List>
+		</List>
+		<List Name="Xdebug Options">
+			<Item
+				Name="ServerHost"
+				Value="127.0.0.1"/>
+			<Item
+				Name="ServerPort"
+				Value="9000"/>
+			<Item
+				Name="ListenInBackground"
+				Value="1"/>
+			<Item
+				Name="StayInDebugger"
+				Value="1"/>
+			<Item
+				Name="AcceptConnections"
+				Value="prompt"/>
+			<Item
+				Name="BreakInSession"
+				Value="step-into"/>
+			<Item
+				Name="show_hidden"
+				Value="1"/>
+			<List Name="Map">
+				<Item
+					Name="RemoteRoot"
+					Value="/var/www/yiipis"/>
+				<Item
+					Name="LocalRoot"
+					Value="/home/jablan/projects/php/pogostick/YiiPIS/"/>
+			</List>
+		</List>
+	</Config>
+	<Files AutoFolders="DirectoryView"/>
+</Project>
