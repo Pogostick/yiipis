@@ -1,72 +1,99 @@
 <?php
+//	Pogostick Yii Extensions
+Yii::setPathOfAlias( 'pogostick', '/usr/local/psYiiExtensions/extensions/pogostick' );
 
-// uncomment the following to define a path alias
-// Yii::setPathOfAlias('local','path/to/local-folder');
+$_sDBHost = 'localhost';
+$_sDBName = 'yiipis';
+$_sDBUserName = 'yiipis_user';
+$_sDBPassword = 'yiipis_user';
+$_sLogPath = '/var/log/yii';
+$_sLogName = 'yiipis_log';
 
-// This is the main Web application configuration. Any writable
-// CWebApplication properties can be configured here.
+//	Our configuration
 return array(
-	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
 
-	// preloading 'log' component
-	'preload'=>array('log'),
+	'name' => 'Yii Productivity Improvement System',
+	'basePath' => dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..',
 
-	// autoloading model and component classes
-	'import'=>array(
+	'preload' => array( 'log' ),
+
+	'import' => array(
 		'application.models.*',
 		'application.components.*',
+		'application.controllers.*',
+		'application.zii.*',
+
+		//	pYe
+		'pogostick.base.*',
+		'pogostick.behaviors.*',
+		'pogostick.commands.*',
+		'pogostick.components.*',
+		'pogostick.controllers.*',
+		'pogostick.events.*',
+		'pogostick.models.*',
+		'pogostick.helpers.*',
+		'pogostick.widgets.*',
+		'pogostick.widgets.pagers.*',
+		'pogostick.widgets.jqui.*',
 	),
 
 	// application components
-	'components'=>array(
-		'user'=>array(
+	'components' => array(
+
+		'user' => array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
-		// uncomment the following to enable URLs in path-format
-		/*
-		'urlManager'=>array(
-			'urlFormat'=>'path',
-			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+
+		'urlManager' => array(
+			'urlFormat' => 'path',
+			'showScriptName' => false,
+		),
+
+		//	caching engine
+		'cache' => array(
+//			'class' => 'CApcCache',
+		),
+
+		//	Authentication manager...
+		'authManager' => array(
+			'class' => 'CDbAuthManager',
+			'connectionID' => 'db',
+		),
+
+		'errorHandler' => array(
+//			'errorAction' => '/site/error',
+		),
+
+		'urlManager' => array(
+			'urlFormat' => 'path',
+			'showScriptName' => false,
+			'rules' => array(
 			),
 		),
-		*/
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
+
+		//	Database (Site)
+		'db' => array(
+			'class' => 'CDbConnection',
+			'autoConnect' => true,
+			'connectionString' => 'mysql:host=' . $_sDBHost . ';dbname=' . $_sDBName . ';',
+			'username' => $_sDBUserName,
+			'password' => $_sDBPassword,
 		),
-		// uncomment the following to use a MySQL database
-		/*
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
-			'charset' => 'utf8',
-		),
-		*/
-		'errorHandler'=>array(
-			// use 'site/error' action to display errors
-            'errorAction'=>'site/error',
-        ),
-		'log'=>array(
+
+		'log' => array(
 			'class'=>'CLogRouter',
-			'routes'=>array(
+			'routes' => array(
 				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+					'class' => 'CFileLogRoute',
+					'levels' => 'info, error, warning, trace',
+					'maxFileSize' => '102400',
+//					'logPath' => $_sLogPath,
+//					'logFile' => $_sLogName,
 				),
-				// uncomment the following to show log messages on web pages
-				/*
-				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
 			),
 		),
+
 	),
 
 	// application-level parameters that can be accessed
