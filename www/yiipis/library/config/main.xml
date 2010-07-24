@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationTemplate>
+	<comment>
+		<![CDATA[
+/*
+ * main.xml
+ *
+ * Copyright (c) 2010 Jerry Ablan <jablan@pogostick.com>.
+ * @link http://www.pogostick.com Pogostick, LLC.
+ * @license http://www.pogostick.com/licensing
+ *
+ * This file is part of YiiPIS.
+ *
+ * We share the same open source ideals as does the jQuery team, and
+ * we love them so much we like to quote their license statement:
+ *
+ * You may use our open source libraries under the terms of either the MIT
+ * License or the Gnu General Public License (GPL) Version 2.
+ *
+ * The MIT License is recommended for most projects. It is simple and easy to
+ * understand, and it places almost no restrictions on what you can do with
+ * our code.
+ *
+ * If the GPL suits your project better, you are also free to use our code
+ * under that license.
+ *
+ * You don’t have to do anything special to choose one license or the other,
+ * and you don’t have to notify anyone which license you are using.
+ */
+/**
+ * Main Config Template
+ *
+ * @package 	yiipis
+ * @subpackage 	library.config
+ *
+ * @author 		Jerry Ablan <jablan@pogostick.com>
+ * @version 	SVN $Id$
+ * @since 		v1.0.0
+ *
+ * @filesource
+ */
+		]]>
+	</comment>
+
+	<configurations>
+		<configuration id="%%ID%%" name="%%CONFIG_NAME_TEXT%%" created="%%CONFIG_CREATE_DATE%%" modified="%%CONFIG_LMOD_DATE%%">
+			<item key="name" value="%%PROJECT_NAME_TEXT%%" />
+			<item key="basePath" value="%%PROJECT_BASE_PATH%%" />
+
+			<item key="preload">
+				<item key="log" />
+			</item>
+
+			<item key="import">
+				<item key="application.models.*" />
+				<item key="application.components.*" />
+				<item key="application.controllers.*" />
+				<item key="application.zii.*" />
+				<item key="pogostick.base.*" />
+				<item key="pogostick.behaviors.*" />
+				<item key="pogostick.commands.*" />
+				<item key="pogostick.components.*" />
+				<item key="pogostick.controllers.*" />
+				<item key="pogostick.events.*" />
+				<item key="pogostick.models.*" />
+				<item key="pogostick.helpers.*" />
+				<item key="pogostick.widgets.*" />
+				<item key="pogostick.widgets.pagers.*" />
+				<item key="pogostick.widgets.jqui.*" />
+			</item>
+
+			<item key="component">
+				<item key="user">
+					<item key="allowAutoLogin" value="true" />
+				</item>
+
+				<item key="urlManager">
+					<item key="urlFormat" value="path" />
+					<item key="showScriptName" value="false" />
+					<item key="rules">
+						<item key="rule">
+							<item key="from" value="" />
+							<item key="to" value="" />
+						</item>
+					</item>
+				</item>
+
+				<item key="cache">
+					<item key="class" value="CApcCache" />
+				</item>
+
+				<item key="authManager">
+					<item key="class" value="CDbAuthManager" />
+					<item key="connectionID" value="db" />
+				</item>
+
+				<item key="errorHandler">
+					<item key="errorAction" value="/site/error" />
+				</item>
+
+				<item key="db">
+					<item key="class" value="CDbConnection" />
+					<item key="autoConnect" value="true" />
+					<item key="connectionString" value="%%DB_CONNECT_STRING%%" />
+					<item key="userName" value="%%DB_USER_NAME%%" />
+					<item key="password" value="%%DB_PASSWORD%%" />
+					<item key="database" value="%%DB_DATABASE%%" />
+				</item>
+
+				<item key="log">
+					<item key="class" value="CLogRouter" />
+					<item key="routes">
+						<item key="file">
+							<item key="class" value="CFileLogRoute" />
+							<item key="levels" value="info, error, warning, trace" />
+							<item key="maxFileSize" value="102400" />
+							<item key="logPath" value="%%LOG_FILE_PATH%%" />
+							<item key="logFile" value="%%LOG_FILE_NAME%%" />
+						</item>
+					</item>
+				</item>
+			</item>
+		</configuration>
+	</configurations>
+
+</configurationTemplate>

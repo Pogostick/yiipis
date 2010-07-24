@@ -30,8 +30,6 @@
 //	Global Settings
 
 /**
- * Codes
- *
  * @package 	yiipis
  * @subpackage	models
  *

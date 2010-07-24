@@ -1,30 +1,127 @@
 body
 {
-	margin: 0;
-	padding: 0;
-	color: #555;
-	font: normal 10pt "Trechet MS",Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+	color: #CCC;
+    font: 13px/21px "helvetica neue",arial,"lucida grande",verdana,arial,sans-serif;
+	opacity: 0.99;
+	background: #010101 url(http://labs.dragoninteractive.com/lib/i/bg.jpg) repeat-x fixed 50% 100%;
+	height: 100%;
+	min-width: 850px;
+	overflow: auto;
+	padding: 0px;
+	margin:0px;
+	width: 100%;
+    opacity: 0.99;
 }
+
+body.container {
+	height: 100%;
+	margin: 0px auto;
+	width: 100%;
+}
+
+body.generic {
+	background: #050505 url(http://labs.dragoninteractive.com/lib/i/bg.jpg) repeat-x 50% 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+p {
+    xbackground: #000;
+    color: #777;
+    color: #999;
+    display: block;
+    font-size: 11px;
+    font-size: 15px;
+    padding: 5px 10px 20px 0;
+    xtext-shadow:rgba(0,0,0,0.01) 0 0 0;
+    }
+
+p a {
+    xbackground: #222;
+    border-bottom: 1px dotted #777;
+    color: #888;
+    text-decoration: none;
+    }
+
+p a:hover {
+    xcolor: #fff;
+    border-bottom: 0 none;
+    }
+
+.body p {
+    color: #aaa;
+    font-size: 15px;
+    font-weight: 400;
+    }
+
+small {
+    color: #555;
+    xcolor: #777;
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 16px;
+    font: 800 12px/18px "helvetica neue","trebuchet ms","arial",sans-serif;
+    margin: 10px 0 7px 0;
+    xmax-width: 17em !important;
+    }
+
+ul {
+    margin: 14px 0 35px 0px;
+    lxist-style: none;
+    }
+
+ul li {
+    color: #333;
+    margin: 0 0 10px 0;
+    }
+
+ul li a {
+    background: #111;
+    color: #777;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 22px;
+    margin: 0 0 0 0px;
+    padding: 3px 7px;
+    text-decoration: none;
+    }
+
+ul li a:hover {
+    color: #fff;
+    xtext-decoration: underline;
+    }
+
+::-moz-selection {
+    background: #00b7ff;
+    xbackground: #ffaa00;
+    color: #fff;
+    }
+
+::selection {
+    background: #00b7ff;
+    color: #fff;
+    }
+
 
 #page
 {
-	margin-top: 5px;
+	margin-top: 35px;
 	margin-bottom: 5px;
-	background: white;
-	border: 1px solid #C9E0ED;
 }
 
 #header
 {
-	margin: 0;
 	padding: 0;
-	border-top: 3px solid #C9E0ED;
 }
 
 #content
 {
     padding: 20px;
+}
+
+#content-wrapper {
+	margin:10px;
 }
 
 #sidebar
@@ -36,55 +133,15 @@ body
 {
 	padding: 10px;
 	margin: 10px 20px;
-	font-size: 0.8em;
+	font-size: 10pt;
 	text-align: center;
 	border-top: 1px solid #C9E0ED;
 }
 
 #logo
 {
-	padding: 10px 20px;
-	font-size: 200%;
-}
-
-#mainmenu
-{
-	background:white url(bg.gif) repeat-x left top;
-}
-
-#mainmenu ul
-{
-	padding:6px 20px 5px 20px;
-	margin:0px;
-}
-
-#mainmenu ul li
-{
-	display: inline;
-}
-
-#mainmenu ul li a
-{
-	color:#ffffff;
-	background-color:transparent;
-	font-size:12px;
-	font-weight:bold;
-	text-decoration:none;
-	padding:5px 8px;
-}
-
-#mainmenu ul li a:hover, #mainmenu ul li.active a
-{
-	color: #6399cd;
-	background-color:#EFF4FA;
-	text-decoration:none;
-}
-
-div.flash-error, div.flash-notice, div.flash-success
-{
-	padding:.8em;
-	margin-bottom:1em;
-	border:2px solid #ddd;
+	font-size: 3em;
+	color:#fff;
 }
 
 div.flash-error
@@ -135,17 +192,6 @@ div.view
 	border: 1px solid #C9E0ED;
 }
 
-div.breadcrumbs
-{
-	font-size: 0.9em;
-	padding: 5px 20px;
-}
-
-div.breadcrumbs span
-{
-	font-weight: bold;
-}
-
 div.search-form
 {
 	padding: 10px;
@@ -153,77 +199,266 @@ div.search-form
 	background: #eee;
 }
 
-.portlet
-{
 
+.curtain {
+	background: url(http://labs.dragoninteractive.com/lib/i/curtains.png) repeat-y 100% 0%;
+	height: 100%;
+	left: 0px;
+	opacity: 1;
+	position: fixed;
+	top: 0px;
+	width: 50px;
+	z-index: 5;
 }
 
-.portlet-decoration
-{
-	padding: 3px 8px;
-	background: #B7D6E7;
-	border-left: 5px solid #6FACCF;
+.top {
+	display:block;
 }
 
-.portlet-title
-{
-	font-size: 12px;
-	font-weight: bold;
-	padding: 0;
-	margin: 0;
-	color: #298dcd;
+.curtain.top {
+	background: url(http://labs.dragoninteractive.com/lib/i/curtains_vertical.png) repeat-x 50% 100%;
+	bottom:auto;
+	height:40px;
+	left:0;
+	top:0;
+	width:100%;
 }
 
-.portlet-content
-{
-	font-size:0.9em;
-	margin: 0 0 15px 0;
-	padding: 5px 8px;
-	background:#EFFDFF;
+.curtain.reflection {
+	background: url(http://labs.dragoninteractive.com/lib/i/icons/reflection.png) repeat-x 50% 100%;
+	bottom: 0px;
+	display: none;
+	height: 94px;
+	left: 0px;
+	position: absolute;
+	top: auto;
+	width: 100%;
 }
 
-.portlet-content ul
-{
-	list-style-image:none;
-	list-style-position:outside;
-	list-style-type:none;
-	margin: 0;
-	padding: 0;
+div.ul-menu {
+	display:inline-block;
+	font-size:13px;
+	color:#efefef;
 }
 
-.portlet-content li
-{
-	padding: 2px 0 4px 0px;
+div.ul-menu a, div.ul-menu a:active,div.ul-menu a:hover,div.ul-menu a:visited {
+	text-decoration:none;
+	color:#efefef;
 }
 
-.operations
-{
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+div#header-menu {
+	position:absolute;
+	top:25px;
+	right:25px;
+	font-size:11px;
+	color:#efefef;
 }
 
-.operations li
-{
-	padding-bottom: 2px;
+div.ul-menu ul {
+	list-style:none;
 }
 
-.operations li a
-{
-	font: bold 12px Arial;
-	color: #0066A4;
-	display: block;
-	padding: 2px 0 2px 8px;
-	line-height: 15px;
-	text-decoration: none;
+div.ul-menu ul li {
+	display:inline;
+	margin:auto 5px;
 }
 
-.operations li a:visited
-{
-	color: #0066A4;
+
+.body img.left { float: left; clear: none; margin: 0 14px 10px 0 !important;  }
+.body img {
+    xclear: left;
+    }
+
+.right { float: right; }a img {
+    border: 0 none;
+    }
+
+a {
+    outline: 0 none;
+    }body.article {
+    xpadding-top: 80px;
+    }
+
+.title {
+    float: left;
+    clear: left;
+    margin: 5px 0 0 2.5%;
+    position: relative;
+    text-align: right;
+    width: 20%;
+    }
+
+.top .title {
+    margin-left: 7.5%;
+    width:15%;
+    }
+
+.title p {
+    color: #777;
+    float: right;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 800;
+    max-width: 15em;
+    padding: 0 0 14px 0;
+    text-align: right;
+    }
+
+.title .home_link {
+    background: #ccc;
+    display: block;
+    position: absolute;
+    padding: 5px 10px;
+    top: -55px;
+    right: 0;
+    z-index: 50;
+    }
+
+.body {
+    font-size: 15px;
+    margin: 0px 5% 42px 22.5%;
+    padding: 0 0 0 28px;
+    }
+
+.body img {
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    display: block;
+    margin: 10px 0 0 0;
+    max-width: 100%;
+    }h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0 0 7px 0;
+    }
+
+#header h1 {
+    margin: 0 0 21px 0;
+    }
+
+.top h1 {
+    font-size: 36px;
+    line-height: 1.7;
+    }
+
+h1 a {
+    color: #fff;
+    text-decoration: none;
+    }
+
+h1 a:hover {
+    text-decoration: underline;
+    }
+
+h2 {
+    color: #fff;
+    font-size: 16px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0 0 5px 0;
+    padding: 0;
+    }
+
+.body h2 {
+    padding-top: 5px;
+    }
+
+h2 a {
+    color: #ccc;
+    text-decoration: none;
+    }
+
+h2 a:hover {
+    color: #ccc;
+    text-decoration: underline;
+    }
+
+.title h2 {
+    color: #fff;
+    font-size: 20px;
+    line-height: 24px;
+    }
+
+.title h2 a {
+    color: #fff;
+    }
+
+.title small,
+h4 {
+    color: #1bf;
+    font: oblique 15px/1.8 "georgia",serif;
+    margin: 0;
+    padding: 0px 0 0 0;
+    }
+
+h3 {
+    font-size: 15px;
+    font-weight: 700;
+    }
+
+#header h1 {
+
+    position: relative;
+    }
+
+	#footer .content {
+    display: block;
+    position: absolute;
+    margin: -228px 0 0 0;
+    top: 45%;
+    left: auto;
+    padding: 0 0 0 50px;
+    }
+
+#footer h2.logo {
+    margin: 0 0 25px 0;
+    position: static;
+    top: auto;
+    left: auto;
+    }
+
+
+#twitter {
+    color: #555;
+    display: none;
+    position: absolute;
+    bottom: 7px;
+    left: 50%;
+    margin: 0 0 0 -75px;
+    }
+
+.silver.sample {
+    background: #bbb;
+    }
+
+.sample h2 {
+    font: 800 42px/1.25 "helvetica neue","lucida grande",verdana,sans-serif;
+    }
+
+.sample h2 span {
+    vertical-align: top !important;
+    }
+
+.inset.sample .rainbows-shadow {
+	color:#FFFFFF !important;
+	opacity:0.7;
 }
 
-.operations li a:hover
-{
-	background: #80CFFF;
+#header-logo {
+	height:80px;
+	left:0;
+	position:absolute;
+	top:0;
+	width:100%;
 }
+
+#header-logo img {
+	display: inline;
+	margin: 19px auto auto 10px;
+	vertical-align: middle;
+}
+
+

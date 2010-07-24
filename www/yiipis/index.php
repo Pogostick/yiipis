@@ -1,6 +1,6 @@
 <?php
 //	Intialize Yii
-$yii = '/usr/local/yii/1.1.2/framework/yii.php';
+$yii = '/usr/local/yii/framework/yii.php';
 $config = dirname( __FILE__ ) . '/protected/config/main.php';
 
 //	Set for debug... Comment out when in production

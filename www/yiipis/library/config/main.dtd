@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/main.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE configurations SYSTEM "main.dtd">
+
+    <configurations>
+    ...
+    </configurations>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT configurations (configuration)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT configuration (options|lastModified|createDate|name)*>
+<!ATTLIST configuration
+    name CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT name (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT createDate (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT lastModified (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT options (components|import|preload|basePath|name)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT basePath (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT preload (item)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT item EMPTY>
+<!ATTLIST item
+    path CDATA #IMPLIED
+    component CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT import (item)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT components (component)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT component (allowAutoLogin|urlFormat|showScriptName|rules|class|connectionID|errorAction|autoConnect|connectionString|userName|password|database|routes)*>
+<!ATTLIST component
+    type CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT allowAutoLogin (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT urlFormat (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT showScriptName (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT rules (rule)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT rule (to|from)*>
+<!ATTLIST rule
+    name CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT from EMPTY>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT to EMPTY>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT class (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT connectionID (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT errorAction (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT autoConnect (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT connectionString (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT userName (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT password (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT database (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT routes (route)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT route (logFile|logPath|maxFileSize|levels|class)*>
+<!ATTLIST route
+    name CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT levels (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT maxFileSize (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT logPath (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT logFile (#PCDATA)>
