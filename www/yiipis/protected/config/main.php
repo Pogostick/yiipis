@@ -14,6 +14,7 @@ return array(
 
 	'name' => 'Yii Productivity Improvement System',
 	'basePath' => dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..',
+	'runtimePath' => $_sLogPath,
 
 	'preload' => array( 'log' ),
 

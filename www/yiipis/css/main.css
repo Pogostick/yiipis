@@ -1,11 +1,37 @@
+/*
+ * This file is part of YiiPIS
+ *
+ * @copyright Copyright &copy; 2010 Pogostick, LLC
+ * @link http://www.pogostick.com Pogostick, LLC.
+ * @license http://www.pogostick.com/licensing
+ */
+
+/**
+ * main css file
+ *
+ * @package 	yiipis
+ * @subpackage 	css
+ *
+ * @author 		Jerry Ablan <jablan@pogostick.com>
+ * @version 	SVN $Id$
+ * @since 		v1.0.0
+ *
+ * @filesource
+ */
+
+/**
+* Our imports...
+*/
+@import url("/css/_icons.css");
+
 body
 {
 	color: #CCC;
     font: 13px/21px "helvetica neue",arial,"lucida grande",verdana,arial,sans-serif;
 	opacity: 0.99;
-	background: #010101 url(http://labs.dragoninteractive.com/lib/i/bg.jpg) repeat-x fixed 50% 100%;
+	background-color: #010101;
 	height: 100%;
-	min-width: 850px;
+	min-width: 1000px !important;
 	overflow: auto;
 	padding: 0px;
 	margin:0px;
@@ -20,7 +46,7 @@ body.container {
 }
 
 body.generic {
-	background: #050505 url(http://labs.dragoninteractive.com/lib/i/bg.jpg) repeat-x 50% 100%;
+	background-color: #050505;
 	height: auto;
 	overflow: hidden;
 }
@@ -67,7 +93,7 @@ small {
     }
 
 ul {
-    margin: 14px 0 35px 0px;
+    margin: 14px 5px 35px 0px;
     lxist-style: none;
     }
 
@@ -77,15 +103,18 @@ ul li {
     }
 
 ul li a {
-    background: #111;
-    color: #777;
-    font-size: 13px;
-    font-weight: 800;
-    line-height: 22px;
-    margin: 0 0 0 0px;
-    padding: 3px 7px;
-    text-decoration: none;
-    }
+	-moz-border-radius:4px 4px 4px 4px;
+	-webkit-border-radius:4px 4px 4px 4px;
+	background:none repeat scroll 0 0 #111111;
+	color:#777777;
+	font-size:15px;
+	font-weight:800;
+	line-height:22px;
+	margin:0 0 0 0;
+	padding:3px 7px;
+	text-decoration:none;
+	text-shadow:none;
+}
 
 ul li a:hover {
     color: #fff;
@@ -106,13 +135,11 @@ ul li a:hover {
 
 #page
 {
-	margin-top: 35px;
-	margin-bottom: 5px;
+	margin:125px 0 5px;
 }
 
-#header
-{
-	padding: 0;
+#page.short {
+	margin-top:45px;
 }
 
 #content
@@ -120,22 +147,9 @@ ul li a:hover {
     padding: 20px;
 }
 
-#content-wrapper {
-	margin:10px;
-}
-
 #sidebar
 {
 	padding: 20px 20px 20px 0;
-}
-
-#footer
-{
-	padding: 10px;
-	margin: 10px 20px;
-	font-size: 10pt;
-	text-align: center;
-	border-top: 1px solid #C9E0ED;
 }
 
 #logo
@@ -224,6 +238,10 @@ div.search-form
 	width:100%;
 }
 
+.curtain.top-short {
+	height:20px !important;
+}
+
 .curtain.reflection {
 	background: url(http://labs.dragoninteractive.com/lib/i/icons/reflection.png) repeat-x 50% 100%;
 	bottom: 0px;
@@ -241,26 +259,87 @@ div.ul-menu {
 	color:#efefef;
 }
 
-div.ul-menu a, div.ul-menu a:active,div.ul-menu a:hover,div.ul-menu a:visited {
-	text-decoration:none;
-	color:#efefef;
+	div.ul-menu ul {
+		list-style:none outside none;
+		position:relative;
+		z-index:20;
+	}
+
+		div.ul-menu ul li {
+			display:inline;
+			margin:0 2px;
+			position:relative;
+			vertical-align:middle;
+		}
+
+	div.ul-menu a {
+		text-decoration:none;
+		color:#ddd;
+	}
+
+		div.ul-menu a:hover {
+			color: #fff !important;
+		}
+
+div#header
+{
+	background-color:#CACACA;
+	border-bottom:1px solid #3178b2;
+	font-size:16px;
+	height:120px;
+	left:0;
+	margin-bottom:25px;
+	min-width:1000px !important;
+	padding:0;
+	position:fixed;
+	text-shadow:1px 1px 1px #FFFFFF;
+	top:0;
+	width:100%;
+}
+
+
+div#header span#show-hide-icon {
+	display:block;
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	z-index:10;	/* This is set to be above curtain, which is at layer 5 */
+}
+
+div#header h1 {
+    margin: 0 0 21px 0;
+    position: relative;
 }
 
 div#header-menu {
+	color:#ddd;
+	float:right;
+	font-size:15px;
+	margin-bottom:0;
+	padding-bottom:0;
 	position:absolute;
-	top:25px;
-	right:25px;
-	font-size:11px;
-	color:#efefef;
+	right:0;
+	top:0;
+	margin:2px 15px 0;
 }
 
-div.ul-menu ul {
-	list-style:none;
+div#header-menu.bottom {
+	margin:80px 15px !important;
 }
 
-div.ul-menu ul li {
-	display:inline;
-	margin:auto 5px;
+
+div#header-logo {
+	background:url("/images/logo.png") no-repeat scroll 15px 18px transparent;
+	display:inline-block;
+	height:120px;
+	width:500px;
+}
+
+.header-logo-short {
+	background:url("/images/logo-short.png") no-repeat scroll 1px 81px transparent !important;
+	display:inline-block;
+	height:40px;
+	width:111px;
 }
 
 
@@ -334,10 +413,6 @@ a {
     margin: 0 0 7px 0;
     }
 
-#header h1 {
-    margin: 0 0 21px 0;
-    }
-
 .top h1 {
     font-size: 36px;
     line-height: 1.7;
@@ -399,66 +474,166 @@ h3 {
     font-weight: 700;
     }
 
-#header h1 {
+#footer
+{
+	border-top:1px solid #3178b2;
+	min-width: 1000px !important;
+	background-color:#CACACA;
+	bottom:0;
+	color:#010101;
+	font-size:11px;
+	height:30px;
+	padding:3px;
+	position:absolute;
+	text-shadow:1px 1px 1px #FFFFFF;
+	width:100%;
+	line-height:25px;
+}
 
-    position: relative;
-    }
+	#footer .footer-block {
+		display:inline;
+		height:28px;
+		margin:2px;
+		padding:0;
+		vertical-align:baseline;
+		width:18%;
+	}
 
-	#footer .content {
+	#footer #footer-menu {
+		list-style:none;
+		display:inline-block;
+		margin-right:0px;
+		padding-right:0px;
+		font-size:15px;
+		margin-bottom:0;
+		padding-bottom:0;
+		margin:2px 15px 0;
+		white-space: nowrap;
+	}
+
+	#footer #footer-menu a, #footer #footer-menu a:visited, #footer #footer-menu a:active {
+		color:#eee;
+	}
+
+	#footer a, #footer a:visited, #footer a:active {
+		color: #010101;
+	}
+
+	#footer a:hover {
+		color:#333333;
+	}
+
+	#footer #footer-copyright {
+		display: inline-block;
+		padding:0px 5px 0px 0px;
+		text-align: center;
+		width: 55%;
+		line-height:26px;
+		vertical-align:top;
+		font-size:15px;
+		white-space: nowrap;
+	}
+
+		#footer-copyright a, #footer-copyright a:visited, #footer-copyright a:active {
+			color: #010101;
+			font-size:17px;
+			text-decoration:none;
+		}
+
+		#footer-copyright a:hover {
+			color:#333333;
+		}
+
+	#footer #footer-credits {
+		display: inline;
+		float: right;
+		font-size: 13px;
+		height: 30px;
+		margin-left: 0px;
+		margin-right: 15px;
+		padding-left: 0px;
+		padding-right: 0px;
+		text-align: center;
+		white-space: nowrap;
+		width: 200px !important;
+	}
+
+		#footer #footer-credits a {
+			color:#010101;
+			text-decoration:none;
+			margin-right:0px;
+			padding-right:0px;
+		}
+
+	#footer span.yii-icon {
+		display: inline-block;
+		height: 16px;
+		width:16px;
+		margin:0px 2px;
+		padding-right:0px;
+		margin-right:0px;
+		vertical-align:middle;
+		background:url('/images/yii-icon.png') top left no-repeat;
+	}
+
+	#footer span.ps-icon {
+		display: inline-block;
+		height: 30px;
+		width:78px;
+		margin:-2px auto 0px;
+		padding:0px;
+		vertical-align:middle;
+		background:url('/images/ps-logo-30.png') top left no-repeat;
+	}
+
+	#footer span.faux-spacer {
+		clear:both;
+		background-color: #AAA;
+		border-right: 1px solid #EEE;
+		display: inline-block;
+		height: 26px;
+		margin: 2px 5px;
+		padding: 0px;
+		width: 1px;
+	}
+
+#footer .content {
     display: block;
     position: absolute;
     margin: -228px 0 0 0;
     top: 45%;
     left: auto;
     padding: 0 0 0 50px;
-    }
+}
 
 #footer h2.logo {
     margin: 0 0 25px 0;
     position: static;
     top: auto;
     left: auto;
-    }
-
-
-#twitter {
-    color: #555;
-    display: none;
-    position: absolute;
-    bottom: 7px;
-    left: 50%;
-    margin: 0 0 0 -75px;
-    }
-
-.silver.sample {
-    background: #bbb;
-    }
-
-.sample h2 {
-    font: 800 42px/1.25 "helvetica neue","lucida grande",verdana,sans-serif;
-    }
-
-.sample h2 span {
-    vertical-align: top !important;
-    }
-
-.inset.sample .rainbows-shadow {
-	color:#FFFFFF !important;
-	opacity:0.7;
 }
 
-#header-logo {
-	height:80px;
-	left:0;
-	position:absolute;
-	top:0;
+
+#content-wrapper {
+	min-width: 1000px !important;
+	clear: both;
+	margin: 25px;
+	position: relative;
+	top: 20px;
+}
+
+div#content-column {
 	width:100%;
+	height:100%;
+	min-height:100%;
+	position:relative;
+	margin:25px;
 }
 
-#header-logo img {
-	display: inline;
-	margin: 19px auto auto 10px;
-	vertical-align: middle;
-}
-
-
+	div#content-column h1 {
+		color:#BBBBBB;
+		font-size:2.5em;
+		font-weight:800;
+		text-decoration:none;
+		text-shadow:0 0 35px #E27A3B;
+	}

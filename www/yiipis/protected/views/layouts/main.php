@@ -1,10 +1,23 @@
 <?php
 $_sBaseUrl = Yii::app()->request->baseUrl;
-PS::_rsf( '/jquery-plugins/jsTree/_lib/jquery.cookie.js', CClientScript::POS_HEAD, true );
-PS::_rsf( '/jquery-plugins/jsTree/jquery.jstree.js', CClientScript::POS_HEAD, true );
+
+//	Site-level css
 PS::_rcf( '/jquery-plugins/rainbows/rainbows.css', null, true );
-PS::_rsf( '/jquery-plugins/rainbows/rainbows.js', CClientScript::POS_HEAD, true );
-PS::_rs( null, "rainbows.init({selector:'#header-logo h2',shadow:true,from:'#666666',to:'#aaaaaa'});", CClientScript::POS_READY );
+
+//	Site-level self-contained scripts
+PS::_rsf(
+	array(
+		'jquery-plugins/jsTree/_lib/jquery.cookie.js',
+		'jquery-plugins/jsTree/jquery.jstree.js',
+		'jquery-plugins/rainbows/rainbows.js',
+		'/scripts/site.jquery.js',
+	),
+	CClientScript::POS_HEAD,
+	true
+);
+
+//	Site-level inline scripts
+PS::_rs( null, "rainbows.init();", CClientScript::POS_READY );
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -18,46 +31,48 @@ PS::_rs( null, "rainbows.init({selector:'#header-logo h2',shadow:true,from:'#666
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
-<xbody class="container generic">
-<body id="rain_demo" class=" rain demo">
+<body class="container generic">
 
 	<div id="page">
 
-		<div id="header">
-			
-			<div class="inset silver sample" id="header-logo">
-				<img src="/images/logo.png" alt="" border="0" valign="middle"/>
-			</div>
-
-			<div id="header-menu" class="ul-menu">
-				<ul>
-					<li>Welcome</li>
-					<li><a href="/login/">Login</a></li>
-					<li><a href="/logout/">Logout</a></li>
-					<li><a href="/help/">Help</a></li>
-				</ul>
-			</div>
-		</div>
-
-		<div id="main-menu" class="ul-menu">
-			<ul>
-				<li><a href="/configure/">Configure</a></li>
-				<li><a href="/build/">Build</a></li>
-				<li><a href="/maintain/">Maintain</a></li>
-			</ul>
-		</div>
+		<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_header.php'; ?>
 
 		<div id="content-wrapper">
-			<?php echo $content; ?>
+			<div id="content-column">
+				<?php echo $content; ?>
+			</div>
 		</div>
 
 		<div id="footer">
-			Copyright &copy; <?php echo date('Y'); ?> by Pogostick, LLC. All Rights Reserved<br />
-			<?php echo Yii::powered(); ?>
-		</div><!-- footer -->
-</div><!-- page -->
-<div class="reflection curtain" style="top: 4727px; "></div>
-<div class="curtain top"></div>
+			<span id="footer-menu" class="footer-block"?
+				<div class="ul-menu">
+					<ul>
+						<?php echo $_link; ?>
+						<li><a href="/help/">Help</a></li>
+					</ul>
+				</div>
+			</span>
+			
+			<span class="faux-spacer"></span>
 
+			<span id="footer-copyright" class="footer-block">
+				The Yii <span style="color:#e6592d">Project Improvement Suite</span> is 100% open source and proudly brought to you by <a href="http://www.pogostick.com/"><span class="ps-icon"></span></a>
+			</span>
+
+			<span class="faux-spacer"></span>
+
+			<span id="footer-credits" class="footer-block">
+				<span id="yii-powered">
+					Powered by the <a href="http://www.yiiframework.com/">Yii Framework</a>
+					<span class="yii-icon"></span>
+				</span>
+			</span>
+		</div><!-- footer -->
+
+	</div>
+
+	<!-- some cool curtains -->
+	<div class="reflection curtain" style="top: 4727px; "></div>
+	<div class="curtain top"></div>
 </body>
 </html>

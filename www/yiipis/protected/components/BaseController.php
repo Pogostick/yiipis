@@ -30,14 +30,6 @@ class BaseController extends CPSController
 	//********************************************************************************
 
 	/**
-	 * @var string the default layout for the controller view. Defaults to 'application.views.layouts.column1',
-	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
-	 */
-	protected $m_sLayout = 'application.views.layouts.column1';
-	public function getLayout() { return $this->m_sLayout; }
-	public function setLayout( $sValue ) { $this->m_sLayout = $sValue; }
-
-	/**
 	 * @var array context menu items. This property will be assigned to {@link CMenu::items}.
 	 */
 	protected $m_arMenu = array();
@@ -56,6 +48,14 @@ class BaseController extends CPSController
 	//********************************************************************************
 	//* Public Funnctions
 	//********************************************************************************
+
+	public function init()
+	{
+		parent::init();
+
+		//	We want a single column here...
+//		$this->_contentLayout = '_oneColumn';
+	}
 
 	/**
 	 * Default error handling
