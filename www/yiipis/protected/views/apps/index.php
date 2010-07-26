@@ -1,8 +1,8 @@
 <?php
-CPSjqUIWrapper::loadScripts( null, 'ui-lightness' );
+CPSjqUIWrapper::loadScripts( null, 'pepper-grinder' );
 ?>
 
-<div id="inner-page-menu" class="ui-widget">
+<div id="inner-page-menu" class="overcast">
 
 	<span rel="add" class="inner-page-menu-item ui-widget-content">
 		<span id="apps-manager-add-icon" class="inner-page-menu-item-icon">Cool Icon</span>
