@@ -45,6 +45,14 @@ class BaseController extends CPSController
 	public function getBreadcrumbs() { return $this->m_arBreadcrumbs; }
 	public function setBreadcrumbs( $arValue ) { $this->m_arBreadcrumbs = $arValue; }
 
+	protected $_displayName = 'Application Manager';
+	protected function setDisplayName( $value ) { $this->_displayName = $value; }
+	protected function getDisplayName() { return $this->_displayName; }
+
+	protected $_cleanTrail;
+	protected function setCleanTrail( $value ) { $this->_cleanTrail = $value; }
+	protected function getCleanTrail() { return $this->_cleanTrail; }
+
 	//********************************************************************************
 	//* Public Funnctions
 	//********************************************************************************

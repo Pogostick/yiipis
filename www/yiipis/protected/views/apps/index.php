@@ -2,8 +2,6 @@
 CPSjqUIWrapper::loadScripts( null, 'ui-lightness' );
 ?>
 
-<h1>Application Manager</h1>
-
 <div id="inner-page-menu" class="ui-widget">
 
 	<span rel="add" class="inner-page-menu-item ui-widget-content">

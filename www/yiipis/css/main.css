@@ -24,6 +24,10 @@
 */
 @import url("/css/_icons.css");
 
+html, body {
+	background-color:#050505;
+}
+
 body
 {
 	color: #CCC;
