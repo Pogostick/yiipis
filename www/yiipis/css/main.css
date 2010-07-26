@@ -27,11 +27,11 @@
 body
 {
 	color: #CCC;
-    font: 13px/21px "helvetica neue",arial,"lucida grande",verdana,arial,sans-serif;
+    font: 13px/21px "helvetica neue",arial,"tahoma","lucida grande",verdana,arial,sans-serif;
 	opacity: 0.99;
 	background-color: #010101;
 	height: 100%;
-	min-width: 1000px !important;
+	min-width: 1030px !important;
 	overflow: auto;
 	padding: 0px;
 	margin:0px;
@@ -45,7 +45,7 @@ body.container {
 	width: 100%;
 }
 
-body.generic {
+body.generic, body.home {
 	background-color: #050505;
 	height: auto;
 	overflow: hidden;
@@ -215,7 +215,7 @@ div.search-form
 
 
 .curtain {
-	background: url(http://labs.dragoninteractive.com/lib/i/curtains.png) repeat-y 100% 0%;
+	background: url(/images/curtains.png) repeat-y 100% 0%;
 	height: 100%;
 	left: 0px;
 	opacity: 1;
@@ -230,7 +230,7 @@ div.search-form
 }
 
 .curtain.top {
-	background: url(http://labs.dragoninteractive.com/lib/i/curtains_vertical.png) repeat-x 50% 100%;
+	background: url(/images/curtains_vertical.png) repeat-x 50% 100%;
 	bottom:auto;
 	height:40px;
 	left:0;
@@ -243,7 +243,7 @@ div.search-form
 }
 
 .curtain.reflection {
-	background: url(http://labs.dragoninteractive.com/lib/i/icons/reflection.png) repeat-x 50% 100%;
+	background: url(/images/reflection.png) repeat-x 50% 100%;
 	bottom: 0px;
 	display: none;
 	height: 94px;
@@ -274,11 +274,13 @@ div.ul-menu {
 
 	div.ul-menu a {
 		text-decoration:none;
-		color:#ddd;
+		color:#aaa;
+		text-shadow:none;
 	}
 
 		div.ul-menu a:hover {
 			color: #fff !important;
+			text-shadow:0 0 2px #E27A3B;
 		}
 
 div#header
@@ -289,12 +291,23 @@ div#header
 	height:120px;
 	left:0;
 	margin-bottom:25px;
-	min-width:1000px !important;
+	min-width:1030px !important;
 	padding:0;
 	position:fixed;
 	text-shadow:1px 1px 1px #FFFFFF;
 	top:0;
 	width:100%;
+}
+
+div#header #header-current-page {
+	bottom: 0px;
+	color: #333;
+	display: inline-block;
+	font-size: 24px;
+	height: 26px;
+	padding-bottom: 2px;
+	position: absolute;
+	right: 25px;
 }
 
 
@@ -477,7 +490,7 @@ h3 {
 #footer
 {
 	border-top:1px solid #3178b2;
-	min-width: 1000px !important;
+	min-width: 1030px !important;
 	background-color:#CACACA;
 	bottom:0;
 	color:#010101;
@@ -486,33 +499,58 @@ h3 {
 	padding:3px;
 	position:absolute;
 	text-shadow:1px 1px 1px #FFFFFF;
-	width:100%;
+	width:100% !important;
 	line-height:25px;
 }
 
 	#footer .footer-block {
-		display:inline;
+		display:inline-block;
 		height:28px;
 		margin:2px;
 		padding:0;
 		vertical-align:baseline;
-		width:18%;
+		width:auto;
 	}
 
 	#footer #footer-menu {
-		list-style:none;
-		display:inline-block;
-		margin-right:0px;
-		padding-right:0px;
-		font-size:15px;
-		margin-bottom:0;
-		padding-bottom:0;
-		margin:2px 15px 0;
-		white-space: nowrap;
+		font-size:11px;
+		list-style:none outside none;
+		margin:0;
+		padding:0;
+		white-space:nowrap;
+		width:330px;
 	}
 
+	#footer-menu div.ul-menu {
+		font-size: 13px;
+		margin:3px 4px 4px 6px;
+		padding:0;
+		text-align: left;
+		color:#efefef;
+		position:absolute;
+		top:0;
+		left:0;
+	}
+
+		#footer-menu div.ul-menu ul {
+			list-style:none outside none;
+			position:relative;
+			z-index:20;
+			margin:0;
+			padding:0;
+		}
+
+			#footer-menu div.ul-menu ul li {
+				display:inline;
+				margin:0 2px;
+				position:relative;
+				vertical-align:middle;
+				color:#aaa;
+			}
+
 	#footer #footer-menu a, #footer #footer-menu a:visited, #footer #footer-menu a:active {
-		color:#eee;
+		color:#aaa;
+		font-size:11px;
 	}
 
 	#footer a, #footer a:visited, #footer a:active {
@@ -524,24 +562,30 @@ h3 {
 	}
 
 	#footer #footer-copyright {
-		display: inline-block;
-		padding:0px 5px 0px 0px;
-		text-align: center;
-		width: 55%;
+		cursor:help;
+		display:inline-block;
+		float:right;
+		font-size:13px;
 		line-height:26px;
+		min-width:50%;
+		padding:0 5px 0 0;
+		position:absolute;
+		right:2px;
+		text-align:right;
+		top:2px;
 		vertical-align:top;
-		font-size:15px;
-		white-space: nowrap;
+		white-space:nowrap;
 	}
 
 		#footer-copyright a, #footer-copyright a:visited, #footer-copyright a:active {
 			color: #010101;
-			font-size:17px;
+			font-size:13px;
 			text-decoration:none;
 		}
 
 		#footer-copyright a:hover {
 			color:#333333;
+			text-decoration:underline;
 		}
 
 	#footer #footer-credits {
@@ -553,9 +597,9 @@ h3 {
 		margin-right: 15px;
 		padding-left: 0px;
 		padding-right: 0px;
-		text-align: center;
+		text-align: right;
 		white-space: nowrap;
-		width: 200px !important;
+		width: 270px !important;
 	}
 
 		#footer #footer-credits a {
@@ -563,6 +607,10 @@ h3 {
 			text-decoration:none;
 			margin-right:0px;
 			padding-right:0px;
+		}
+
+		#footer #footer-credits span#yii-powered a:hover {
+			text-decoration:underline;
 		}
 
 	#footer span.yii-icon {
@@ -587,7 +635,6 @@ h3 {
 	}
 
 	#footer span.faux-spacer {
-		clear:both;
 		background-color: #AAA;
 		border-right: 1px solid #EEE;
 		display: inline-block;
@@ -597,43 +644,92 @@ h3 {
 		width: 1px;
 	}
 
-#footer .content {
-    display: block;
-    position: absolute;
-    margin: -228px 0 0 0;
-    top: 45%;
-    left: auto;
-    padding: 0 0 0 50px;
-}
-
-#footer h2.logo {
-    margin: 0 0 25px 0;
-    position: static;
-    top: auto;
-    left: auto;
-}
-
-
-#content-wrapper {
-	min-width: 1000px !important;
-	clear: both;
-	margin: 25px;
-	position: relative;
-	top: 20px;
-}
-
-div#content-column {
-	width:100%;
-	height:100%;
-	min-height:100%;
-	position:relative;
-	margin:25px;
-}
-
-	div#content-column h1 {
-		color:#BBBBBB;
-		font-size:2.5em;
-		font-weight:800;
-		text-decoration:none;
-		text-shadow:0 0 35px #E27A3B;
+	#footer .content {
+		display: block;
+		position: absolute;
+		margin: -228px 0 0 0;
+		top: 45%;
+		left: auto;
+		padding: 0 0 0 50px;
 	}
+
+	#footer h2.logo {
+		margin: 0 0 25px 0;
+		position: static;
+		top: auto;
+		left: auto;
+	}
+
+/**
+* Tooltip
+*/
+.yiipis-tooltip {
+	display:none;
+	background:transparent url(/images/white_big.png) top left no-repeat;
+	font-size:13px;
+	height:194px;
+	width:370px;
+	padding:10px 25px 25px;
+	color:#333;
+}
+
+.yiipis-tooltip h3 {
+	margin-top:10px;
+}
+
+/**
+* Inner pages
+*/
+
+div#inner-page-menu {
+	width:auto;
+	height:100%;
+	display:inline-block;
+	position:relative;
+	margin:0 auto;
+}
+
+div#inner-page-menu span.inner-page-menu-item {
+	float:left;
+	width:40%;
+	margin:25px 25px 0 25px;
+	border:3px solid #75b1e1;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	text-align:left;
+	position:relative;
+	cursor:pointer;
+}
+
+div#inner-page-menu span.inner-page-menu-item h1 {
+	margin-top:10px;
+	color:#E27A3B;
+	text-shadow:1px 1px 0px #fff;
+	text-align:left;
+	margin-left:125px;
+}
+
+div#inner-page-menu span.inner-page-menu-item-icon {
+	height:100px;
+	width:100px;
+	display:inline-block;
+	border:1px solid #b8d567;
+	position:absolute;
+	vertical-align:middle;
+	margin:0 auto;
+	top:10px;
+	left:10px;
+}
+
+div#inner-page-menu span.inner-page-menu-item p {
+	padding:0px 10px 10px 125px;
+	font-weight:300 !important;
+}
+
+
+/**
+* Right side doesn't need left margin
+*/
+.inner-page-menu-item.right {
+	margin-left:0px;
+}

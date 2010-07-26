@@ -27,5 +27,11 @@ $(function() {
 			$(this).removeClass('yiipis-icon-state-hover').addClass('yiipis-icon-state-active');
 		}
 	});
+
+	$('#header-logo').click(function(e){
+		e.preventDefault();
+		window.location.href = '/';
+		return false;
+	})
 });
 

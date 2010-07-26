@@ -1,5 +1,21 @@
 <?php
-$_sBaseUrl = Yii::app()->request->baseUrl;
+/**
+ * main page layout
+ *
+ * @package 	yiipis
+ * @subpackage 	views.layouts
+ *
+ * @author 		Jerry Ablan <jablan@pogostick.com>
+ * @version 	SVN $Id$
+ * @since 		v1.0.0
+ *
+ * @filesource
+ */
+
+//	Our one column layout css file. You can change the inner layout of the page by changing these styles
+PS::_rcf( '/css/layouts/_oneColumn.css' );
+
+$_baseUrl = PS::_gbu();
 
 //	Site-level css
 PS::_rcf( '/jquery-plugins/rainbows/rainbows.css', null, true );
@@ -21,58 +37,29 @@ PS::_rs( null, "rainbows.init();", CClientScript::POS_READY );
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
+	<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_htmlHeader.php'; ?>
+	<body class="container generic">
 
-	<link rel="stylesheet" type="text/css" href="<?php echo $_sBaseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo $_sBaseUrl; ?>/css/form.css" />
+		<div id="page">
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-</head>
+			<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_header.php'; ?>
 
-<body class="container generic">
+			<div id="content-wrapper">
+				<div id="content-navigation">
 
-	<div id="page">
+				</div>
 
-		<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_header.php'; ?>
-
-		<div id="content-wrapper">
-			<div id="content-column">
-				<?php echo $content; ?>
+				<div id="column-one" class="content-one-column">
+					<?php echo $content; ?>
+				</div>
 			</div>
+
+			<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_footer.php'; ?>
+
 		</div>
 
-		<div id="footer">
-			<span id="footer-menu" class="footer-block"?
-				<div class="ul-menu">
-					<ul>
-						<?php echo $_link; ?>
-						<li><a href="/help/">Help</a></li>
-					</ul>
-				</div>
-			</span>
-			
-			<span class="faux-spacer"></span>
-
-			<span id="footer-copyright" class="footer-block">
-				The Yii <span style="color:#e6592d">Project Improvement Suite</span> is 100% open source and proudly brought to you by <a href="http://www.pogostick.com/"><span class="ps-icon"></span></a>
-			</span>
-
-			<span class="faux-spacer"></span>
-
-			<span id="footer-credits" class="footer-block">
-				<span id="yii-powered">
-					Powered by the <a href="http://www.yiiframework.com/">Yii Framework</a>
-					<span class="yii-icon"></span>
-				</span>
-			</span>
-		</div><!-- footer -->
-
-	</div>
-
-	<!-- some cool curtains -->
-	<div class="reflection curtain" style="top: 4727px; "></div>
-	<div class="curtain top"></div>
-</body>
+		<!-- some cool curtains if you have a cool browser -->
+		<div class="reflection curtain" style="top: 4727px; "></div>
+		<div class="curtain top"></div>
+	</body>
 </html>

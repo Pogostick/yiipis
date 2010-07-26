@@ -12,7 +12,7 @@ $_sLogName = 'yiipis_log';
 //	Our configuration
 return array(
 
-	'name' => 'Yii Productivity Improvement System',
+	'name' => 'Yii Project Improvement Suite',
 	'basePath' => dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..',
 	'runtimePath' => $_sLogPath,
 
@@ -63,7 +63,7 @@ return array(
 		),
 
 		'errorHandler' => array(
-//			'errorAction' => '/site/error',
+			'errorAction' => '/site/error',
 		),
 
 		'urlManager' => array(

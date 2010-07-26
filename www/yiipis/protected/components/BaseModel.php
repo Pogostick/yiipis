@@ -32,8 +32,8 @@
 /**
  * BaseModel
  *
- * @package 	YiiPIS
- * @subpackage 	
+ * @package 	yiipis
+ * @subpackage 	controllers
  *
  * @author 		Jerry Ablan <jablan@pogostick.com>
  * @version 	SVN $Id$

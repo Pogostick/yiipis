@@ -1,5 +1,9 @@
 <?php
 class SiteController extends BaseController
 {
-	public function actionIndex() { return $this->render( 'index' ); }
+	public function actionIndex() 
+	{
+		$this->setPageLayout( 'home' );
+		return $this->render( 'index' );
+	}
 }

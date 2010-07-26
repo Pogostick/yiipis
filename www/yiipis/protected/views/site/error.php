@@ -5,8 +5,9 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h2>Error <?php echo $code; ?></h2>
-
-<div class="error">
-<?php echo CHtml::encode($message); ?>
+<div style="text-align:center;margin:25px auto;">
+	<img src="/images/404.jpg" />
+	<div class="error">
+		<?php echo CHtml::encode($message); ?>
+	</div>
 </div>
