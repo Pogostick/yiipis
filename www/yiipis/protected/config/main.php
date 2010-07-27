@@ -70,6 +70,7 @@ return array(
 			'urlFormat' => 'path',
 			'showScriptName' => false,
 			'rules' => array(
+				'<view:\w+>' => 'site/_static',
 			),
 		),
 

@@ -66,6 +66,19 @@ class BaseController extends CPSController
 	}
 
 	/**
+	 * How about a default action that displays static pages? Huh? Huh?
+	 * @return array
+	 */
+	public function actions()
+	{
+		return array(
+			'_static' => array(
+				'class' => 'CViewAction',
+			),
+		);
+	}
+
+	/**
 	 * Default error handling
 	 */
 	public function actionError()
