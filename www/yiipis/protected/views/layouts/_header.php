@@ -25,7 +25,7 @@ CPSjqUIWrapper::loadScripts();
 
 $_user = Yii::app()->getUser()->isGuest ? null : Yii::app()->getUser();
 $_name = $_user ? $_user->first_name_text : 'Fellow Yii Enthusiast';
-$_link = PS::tag( 'li', array(), $_user ? PS::link( 'Logout', 'logout' ) : PS::link( 'Login', 'login' ) );
+$_link = PS::tag( 'li', array(), $_user ? PS::link( 'logout', 'logout' ) : PS::link( 'login', 'login' ) );
 
 /*
 $_extraLinks = PS::tag( 'li', array(), PS::link( 'About', 'site/about' ) ) .
@@ -43,7 +43,7 @@ $_extraLinks = PS::tag( 'li', array(), PS::link( 'About', 'site/about' ) ) .
 			<li class="welcome-text">Welcome <?php echo $_name; ?></li>
 			<?php echo $_link; ?>
 			<?php //echo $_extraLinks; ?>
-			<li><a href="site/help">Help</a></li>
+			<li><a href="site/help">faq</a></li>
 		</ul>
 	</div>
 
@@ -105,7 +105,7 @@ $_extraLinks = PS::tag( 'li', array(), PS::link( 'About', 'site/about' ) ) .
 						$('div.curtain.top').css({height:'20px'}).fadeIn();
 						_logo
 							.addClass('header-logo-short')
-							.show('slide',{direction: 'left', duration: 1500, easing: 'easeOutBounce'});
+							.show('slide',{direction: 'down', duration: 1500, easing: 'easeOutBounce'});
 					});
 
 					$(this).fadeOut('fast',function(){

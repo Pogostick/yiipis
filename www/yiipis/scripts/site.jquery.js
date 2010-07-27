@@ -28,6 +28,22 @@ $(function() {
 		}
 	});
 
+	/**
+	 * A generic catch-all hover icon doohickey.
+	 * Basically define a block and set the "rel" attribute to the name of the hover class.
+	 */
+	$('div.hoverable,span.hoverable').live('mouseover mouseout',function(e) {
+		var _hoverClass = $(this).attr('rel');
+
+		if ( _hoverClass ) {
+			if (e.type == 'mouseover') {
+				$(this).addClass(_hoverClass);
+			} else {
+				$(this).removeClass(_hoverClass);
+			}
+		}
+	});
+
 	$('#header-logo').click(function(e){
 		e.preventDefault();
 		window.location.href = '/';

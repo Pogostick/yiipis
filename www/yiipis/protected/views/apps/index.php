@@ -5,30 +5,31 @@ CPSjqUIWrapper::loadScripts( null, 'pepper-grinder' );
 <div id="inner-page-menu" class="overcast">
 
 	<span rel="add" class="inner-page-menu-item ui-widget-content">
-		<span id="apps-manager-add-icon" class="inner-page-menu-item-icon">Cool Icon</span>
-		<h1>Add an Application</h1>
+		<span id="app-manager-add" rel="yiipis-menu-icon-hover" class="yiipis-menu-icon yiipis-menu-icon-plus hoverable"></span>
+		<h1>Add App</h1>
 		<p>Aliquam imperdiet sem a dui suscipit ultricies. Nullam sit amet ante nec lacus bibendum tristique ac facilisis tellus. Suspendisse sit amet risus dolor. Nunc luctus imperdiet commodo. Nam blandit scelerisque ligula,</p>
 	</span>
 
 	<span rel="show" class="inner-page-menu-item ui-widget-content">
-		<span id="apps-manager-show-icon" class="inner-page-menu-item-icon">Cool Icon</span>
-		<h1>List Applications</h1>
+		<span id="app-manager-show" rel="yiipis-menu-icon-hover" class="yiipis-menu-icon yiipis-menu-icon-x hoverable"></span>
+		<h1>Administer Apps</h1>
 		<p>Aliquam imperdiet sem a dui suscipit ultricies. Nullam sit amet ante nec lacus bibendum tristique ac facilisis tellus. Suspendisse sit amet risus dolor. Nunc luctus imperdiet commodo. Nam blandit scelerisque ligula,</p>
 	</span>
 
-	<span rel="update" class="inner-page-menu-item ui-widget-content">
-		<span id="apps-manager-update-icon" class="inner-page-menu-item-icon">Cool Icon</span>
-		<h1>Update an Application</h1>
+	<span rel="import" class="inner-page-menu-item clear ui-widget-content">
+		<span id="app-manager-import" rel="yiipis-menu-icon-hover" class="yiipis-menu-icon yiipis-menu-icon-plus hoverable"></span>
+		<h1>Import an App</h1>
 		<p>Aliquam imperdiet sem a dui suscipit ultricies. Nullam sit amet ante nec lacus bibendum tristique ac facilisis tellus. Suspendisse sit amet risus dolor. Nunc luctus imperdiet commodo. Nam blandit scelerisque ligula,</p>
 	</span>
 
 	<span rel="remove" class="inner-page-menu-item ui-widget-content">
-		<span id="apps-manager-remove-icon" class="inner-page-menu-item-icon">Cool Icon</span>
-		<h1>Remove an Application</h1>
+		<span id="app-manager-remove" rel="yiipis-menu-icon-hover" class="yiipis-menu-icon yiipis-menu-icon-minus hoverable"></span>
+		<h1>Remove an App</h1>
 		<p>Aliquam imperdiet sem a dui suscipit ultricies. Nullam sit amet ante nec lacus bibendum tristique ac facilisis tellus. Suspendisse sit amet risus dolor. Nunc luctus imperdiet commodo. Nam blandit scelerisque ligula,</p>
 	</span>
 
 </div>
+
 <script type="text/javascript">
 	$(function(){
 		$('span.inner-page-menu-item')
