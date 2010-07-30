@@ -1,4 +1,4 @@
-
+![YiiPIS](http://www.yiipis.com/images/logo.png)
 
 Yii Project Improvement Suite
 =============================
