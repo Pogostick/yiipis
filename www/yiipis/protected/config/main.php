@@ -16,7 +16,7 @@ return array(
 	'basePath' => dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..',
 	'runtimePath' => $_sLogPath,
 
-	'preload' => array( 'log' ),
+	'preload' => array( 'log', 'yiipis' ),
 
 	'import' => array(
 		'application.models.*',
@@ -41,6 +41,10 @@ return array(
 	// application components
 	'components' => array(
 
+		'yiipis' => array(
+			'class' => 'CYPSAppImprover',
+		),
+
 		'user' => array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -52,9 +56,9 @@ return array(
 		),
 
 		//	caching engine
-		'cache' => array(
+//		'cache' => array(
 //			'class' => 'CApcCache',
-		),
+//		),
 
 		//	Authentication manager...
 		'authManager' => array(
@@ -90,8 +94,8 @@ return array(
 					'class' => 'CFileLogRoute',
 					'levels' => 'info, error, warning, trace',
 					'maxFileSize' => '102400',
-//					'logPath' => $_sLogPath,
-//					'logFile' => $_sLogName,
+					'logPath' => $_sLogPath,
+					'logFile' => $_sLogName,
 				),
 			),
 		),

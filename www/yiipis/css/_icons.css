@@ -1,0 +1,113 @@
+/*
+ * This file is part of YiiPIS
+ *
+ * @copyright Copyright &copy; 2010 Pogostick, LLC
+ * @link http://www.pogostick.com Pogostick, LLC.
+ * @license http://www.pogostick.com/licensing
+ */
+
+/**
+ * _icons.css import file
+ *
+ * All icons used by the site are defined here.
+ * This file is imported by main.css
+ *
+ * @package 	yiipis
+ * @subpackage 	css
+ *
+ * @author 		Jerry Ablan <jablan@pogostick.com>
+ * @version 	SVN $Id$
+ * @since 		v1.0.0
+ *
+ * @filesource
+ */
+
+/**
+* Menu Icons
+*/
+
+.yiipis-menu-icon {
+	background-color:transparent;
+	background-position:0 -128px;
+	background-repeat:no-repeat;
+	display:inline-block;
+	height:128px !important;
+	margin:5px;
+	overflow:hidden;
+	position:absolute;
+	width:128px !important;
+}
+
+	.yiipis-menu-icon.yiipis-menu-icon-hover {
+		background-position:0px 0px !important;
+	}
+
+	.yiipis-menu-icon-plus {
+		background-image:url(/images/icons/menu-icon-plus.png);
+	}
+
+	.yiipis-menu-icon-minus {
+		background-image:url(/images/icons/menu-icon-minus.png);
+	}
+
+	.yiipis-menu-icon-x {
+		background-image:url(/images/icons/menu-icon-x.png);
+	}
+
+/**
+* Basic icon
+*/
+
+.yiipis-icon {
+	width:16px;
+	height:16px;
+	display:inline-block;
+	position:relative;
+}
+
+.yiipis-icon-tiny {
+	width:8px;
+	height:8px;
+	display:inline-block;
+	position:relative;
+}
+
+/**
+* Site Sprites (say THAT ten times fast!)
+*/
+
+.yiipis-icons-site {
+	background:url("/images/site-icons-sprite.png") top left no-repeat;
+}
+
+span.yiipis-icon-hide {
+	background-position: 0px -8px;
+}
+
+	span.yiipis-icon-hider.yiipis-icon-state-active {
+		background-position: 0px -8px !important;
+	}
+
+	span.yiipis-icon-hider.yiipis-icon-state-inactive {
+		background-position: -8px -8px !important;
+	}
+
+	.yiipis-icon-state-hover.yiipis-icon-hide {
+		background-position: -16px -8px !important;
+	}
+
+span.yiipis-icon-show {
+	background-position: 0px 0px !important;
+}
+
+	span.yiipis-icon-show.yiipis-icon-state-active {
+		background-position: 0px 0px !important;
+	}
+
+	span.yiipis-icon-show.yiipis-icon-state-inactive {
+		background-position: -8px 0px !important;
+	}
+
+	span.yiipis-icon-state-hover.yiipis-icon-show {
+		background-position: -16px 0px !important;
+	}

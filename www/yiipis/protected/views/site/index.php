@@ -8,7 +8,9 @@ $this->pageTitle = Yii::app()->name;
 
 ?>
 <div style="text-align:center">
-	<h1 id="welcome-header">Are you ready to get your Yii on?</h1>
+
+	<h1 id="welcome-header" style="padding-top:150px;font-size:3.5em">Are you ready to get your Yii on?<BR /><BR /><span class="yiipis">YiiPIS</span> is coming soon!</h1>
+
 	<script type="text/javascript">
 		$(function(){
 			$('h1').effect('pulsate',{times:2},10000);
