@@ -65,7 +65,11 @@ PS::_rcf( '/css/layouts/_footer.css' );
 		<span style="color:#e6592d">YiiPIS</span> is <a href="http://github.com/lucifurious/yiipis" target="_blank">%100 open source</a> and proudly brought to you by<span style="position:relative;display:inline-block;"><a target="_blank" href="http://www.pogostick.com/"><span class="ps-icon"></span></a></span>
 		<span style="color:#888;">&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</span>
 		Powered by <span class="yii-icon"></span><a target="_blank" href="http://www.yiiframework.com/" valign="middle">Yii</a>
-		</span>
 	</span>
 	
 </div>
+
+<script type="text/javascript">
+	$(function(){
+	})
+</script>

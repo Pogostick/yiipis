@@ -1,0 +1,82 @@
+/**
+ * _header stylesheet
+ *
+ * @package 	yiipis
+ * @subpackage 	css.layouts
+ *
+ * @author 		Jerry Ablan <jablan@pogostick.com>
+ * @since 		v1.0.0
+ *
+ * @filesource
+ */
+
+div#header
+{
+	background-color:#CACACA;
+	border-bottom:1px solid #3178b2;
+	font-size:16px;
+	height:120px;
+	left:0;
+	padding:0;
+	position:relative;
+	text-shadow:1px 1px 1px #FFFFFF;
+	width:100%;
+	margin-top: -125px;
+}
+
+div#header #header-current-page {
+	bottom: 0px;
+	color: #333;
+	display: inline-block;
+	font-size: 24px;
+	height: 26px;
+	padding-bottom: 6px;
+	position: absolute;
+	right: 25px;
+}
+
+
+div#header span#show-hide-icon {
+	display:block;
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	z-index:10;	/* This is set to be above curtain, which is at layer 5 */
+}
+
+div#header h1 {
+    margin: 0 0 21px 0;
+    position: relative;
+}
+
+div#header-menu {
+	color:#ddd;
+	float:right;
+	font-size:15px;
+	margin-bottom:0;
+	padding-bottom:0;
+	position:absolute;
+	right:0;
+	top:0;
+	margin:2px 15px 0;
+}
+
+div#header-menu.bottom {
+	margin:80px 15px !important;
+}
+
+
+div#header-logo {
+	background:url("/images/logo.png") no-repeat scroll 15px 18px transparent;
+	display:inline-block;
+	height:120px;
+	width:500px;
+}
+
+.header-logo-short {
+	background:url("/images/logo-short.png") no-repeat scroll 1px 81px transparent !important;
+	display:inline-block;
+	height:40px;
+	width:111px;
+}
+
