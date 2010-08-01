@@ -23,6 +23,9 @@
 //	How about a nice tooltip for our logo?
 //CPSjqToolsWrapper::create( 'tooltip', array( 'target' => '#footer-copyright', 'effect' => 'bouncy', 'tip' => '.yiipis-tooltip' ) );
 //PS::_rsf( '/scripts/site.tooltip.js' );
+
+//	Load our module specific CSS
+PS::_rcf( '/css/layouts/_footer.css' );
 ?>
 
 <div id="footer">
@@ -35,7 +38,7 @@
 				<li><a href="/apps/">apps<span id="apps-toggle" style="top:1px;margin-left:5px;" class="yiipis-icon-tiny yiipis-icons-site yiipis-icon-hide yiipis-icon-state-active yiipis-icon-autohover"></span></a></li>
 			</ul>
 		</div>
-		<div id="apps-su-menu" class="slideup-menu">
+		<div id="apps-su-menu" class="slideup-menu" style="display:none;">
 			<ul>
 				<li><h3>Something #1</h3>
 					<ul>
@@ -66,10 +69,3 @@
 	</span>
 	
 </div>
-
-<div class="yiipis-tooltip"><h3>I'm a tooltip!</h3></div>
-
-<script type="text/javascript">
-	$(function(){
-	});
-</script>

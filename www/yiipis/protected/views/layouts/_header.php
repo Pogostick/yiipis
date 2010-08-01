@@ -20,19 +20,12 @@
  * @filesource
  */
 
-//	Let's get the jQuery UI stuff going...
-CPSjqUIWrapper::loadScripts( null, Yii::app()->params['siteTheme'] );
-
-$_user = Yii::app()->getUser()->isGuest ? null : Yii::app()->getUser();
-$_name = $_user ? $_user->first_name_text : 'Fellow Yii Enthusiast';
-$_link = PS::tag( 'li', array(), $_user ? PS::link( 'logout', 'logout' ) : PS::link( 'login', 'login' ) );
-
-/*
-$_extraLinks = PS::tag( 'li', array(), PS::link( 'About', 'site/about' ) ) .
-	PS::tag( 'li', array(), PS::link( 'Contact', 'site/contact' ) ) .
-	PS::tag( 'li', array(), PS::link( 'Download', 'site/download' ) );
-*/
+//	Load our module specific CSS
+PS::_rcf( '/css/layouts/_header.css' );
 ?>
+<!-- some cool curtains if you have a cool browser -->
+<div class="reflection curtain" style="top: 4727px; "></div>
+<div class="curtain top"></div>
 
 <div id="header">
 

@@ -17,6 +17,11 @@
 	<meta name="language" content="en" />
 
 	<link rel="stylesheet" type="text/css" href="<?php echo $_baseUrl; ?>/css/main.css" />
+<!--[if !IE 7]>
+	<style type="text/css">
+		#page {display:table;height:100%}
+	</style>
+<![endif]-->
 	<link rel="shortcut icon" href="http://www.yiipis.com/favicon.ico" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>

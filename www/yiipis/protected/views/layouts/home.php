@@ -14,7 +14,14 @@
  * @filesource
  */
 
+//	Helper variables
 $_baseUrl = PS::_gbu();
+$_user = Yii::app()->getUser()->isGuest ? null : Yii::app()->getUser();
+$_name = $_user ? $_user->first_name_text : 'Fellow Yii Enthusiast';
+$_link = PS::tag( 'li', array(), $_user ? PS::link( 'logout', 'logout' ) : PS::link( 'login', 'login' ) );
+
+//	Let's get the jQuery UI stuff going...
+CPSjqUIWrapper::loadScripts( null, Yii::app()->params['siteTheme'] );
 
 //	Site-level css
 PS::_rcf( '/jquery-plugins/rainbows/rainbows.css', null, true );
@@ -44,20 +51,27 @@ PS::_rs( null, "rainbows.init();", CClientScript::POS_READY );
 	<body class="container home">
 
 		<div id="page">
+
 			<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_header.php'; ?>
 
 			<div id="content-wrapper">
+
 				<div id="content-column">
 					<?php echo $content; ?>
 				</div>
+				
 			</div>
-
-			<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_footer.php'; ?>
 
 		</div>
 
-		<!-- some cool curtains if you have a cool browser -->
-		<div class="reflection curtain" style="top: 4727px; "></div>
-		<div class="curtain top"></div>
+		<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_footer.php'; ?>
+
+		<div class="yiipis-tooltip"><h3>I'm a tooltip!</h3></div>
+
+		<script type="text/javascript">
+			$(function(){
+			});
+		</script>
+
 	</body>
 </html>
