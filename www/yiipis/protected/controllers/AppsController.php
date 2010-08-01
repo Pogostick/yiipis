@@ -41,49 +41,35 @@
  *
  * @filesource
  */
-class AppsController extends BaseController
+class AppsController extends BaseManagerController
 {
 	//********************************************************************************
 	//* Member Variables
 	//********************************************************************************
 
-	protected $_manager;
-	public function getManager() { return $this->_manager; }
-	public function setManager( $value ) { $this->_manager = $value; }
+	//********************************************************************************
+	//* Public Methods
+	//********************************************************************************
 
 	public function init()
 	{
 		parent::init();
 
-		$this->_manager = new CApplicationManager();
-		$this->_displayName = 'Application Manager';
-		$this->_cleanTrail = $this->_displayName;
+		$this->setModelName( 'ManagedApp' );
+
+		$this->_manager = new AppManager();
+		$this->_cleanTrail = $this->_displayName = 'Application Manager';
 	}
 	
 	//********************************************************************************
 	//* Actions
 	//********************************************************************************
 
-	public function actionIndex()
-	{
-		$this->_cleanTrail .= ' &diams; Home';
-		$this->render( 'index' );
-	}
-
-	public function actionAdmin()
-	{
-		$this->render( 'admin' );
-	}
-
 	public function actionNew()
 	{
 		echo file_get_contents( implode( DIRECTORY_SEPARATOR, array( $_SERVER['DOCUMENT_ROOT'], 'library', 'config', 'main.xml' ) ) );
 		return;
 	}
-
-	//********************************************************************************
-	//* Public Methods
-	//********************************************************************************
 
 	//********************************************************************************
 	//* Private Methods

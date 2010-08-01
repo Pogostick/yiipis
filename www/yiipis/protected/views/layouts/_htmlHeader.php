@@ -17,7 +17,6 @@
 	<meta name="language" content="en" />
 
 	<link rel="stylesheet" type="text/css" href="<?php echo $_baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo $_baseUrl; ?>/css/form.css" />
 	<link rel="shortcut icon" href="http://www.yiipis.com/favicon.ico" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>

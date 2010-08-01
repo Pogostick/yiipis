@@ -29,10 +29,10 @@
 	<span id="footer-menu" class="footer-block">
 		<div class="ul-menu">
 			<ul>
-				<li><a href="servers">servers<span id="community-toggle" style="top:1px;margin-left:5px;" class="yiipis-icon-tiny yiipis-icons-site yiipis-icon-hide yiipis-icon-state-active yiipis-icon-autohover"></span></a></li>
-				<li><a href="databases">databases<span id="community-toggle" style="top:1px;margin-left:5px;" class="yiipis-icon-tiny yiipis-icons-site yiipis-icon-hide yiipis-icon-state-active yiipis-icon-autohover"></span></a></li>
-				<li><a href="configs">configs<span id="configs-toggle" style="top:1px;margin-left:5px;" class="yiipis-icon-tiny yiipis-icons-site yiipis-icon-hide yiipis-icon-state-active yiipis-icon-autohover"></span></a></li>
-				<li><a href="apps">apps<span id="apps-toggle" style="top:1px;margin-left:5px;" class="yiipis-icon-tiny yiipis-icons-site yiipis-icon-hide yiipis-icon-state-active yiipis-icon-autohover"></span></a></li>
+				<li><a href="/servers/">servers<span id="community-toggle" style="top:1px;margin-left:5px;" class="yiipis-icon-tiny yiipis-icons-site yiipis-icon-hide yiipis-icon-state-active yiipis-icon-autohover"></span></a></li>
+				<li><a href="/databases/">databases<span id="community-toggle" style="top:1px;margin-left:5px;" class="yiipis-icon-tiny yiipis-icons-site yiipis-icon-hide yiipis-icon-state-active yiipis-icon-autohover"></span></a></li>
+				<li><a href="/configs/">configs<span id="configs-toggle" style="top:1px;margin-left:5px;" class="yiipis-icon-tiny yiipis-icons-site yiipis-icon-hide yiipis-icon-state-active yiipis-icon-autohover"></span></a></li>
+				<li><a href="/apps/">apps<span id="apps-toggle" style="top:1px;margin-left:5px;" class="yiipis-icon-tiny yiipis-icons-site yiipis-icon-hide yiipis-icon-state-active yiipis-icon-autohover"></span></a></li>
 			</ul>
 		</div>
 		<div id="apps-su-menu" class="slideup-menu">

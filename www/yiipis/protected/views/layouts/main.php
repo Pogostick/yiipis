@@ -45,13 +45,13 @@ PS::_rs( null, "rainbows.init();", CClientScript::POS_READY );
 			<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_header.php'; ?>
 
 			<div id="content-wrapper">
-				<div id="content-navigation">
-
-				</div>
+				<div id="content-navigation"></div>
 
 				<div id="column-one" class="content-one-column">
 					<?php echo $content; ?>
 				</div>
+
+				<div class="push"></div>
 			</div>
 
 			<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_footer.php'; ?>

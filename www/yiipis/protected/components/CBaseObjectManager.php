@@ -52,7 +52,7 @@ abstract class CBaseObjectManager extends CPSComponent
 	 * @param array $options
 	 * @returns integer The id of the new application
 	 */
-	public function create( $options = array() );
+	abstract public function create( $options = array() );
 
 	/**
 	 * Updates an application in the registry
@@ -60,11 +60,11 @@ abstract class CBaseObjectManager extends CPSComponent
 	 * @param array $options
 	 * @returns boolean
 	 */
-	public function update( $which, $options = array() );
+	abstract public function update( $which, $options = array() );
 
 	/**
 	 * Removes an application from the registry
 	 * @param integer $which The id of the appication to remove
 	 */
-	public function remove( $which );
+	abstract public function remove( $which );
 }

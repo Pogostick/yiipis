@@ -21,7 +21,7 @@
  */
 
 //	Let's get the jQuery UI stuff going...
-CPSjqUIWrapper::loadScripts();
+CPSjqUIWrapper::loadScripts( null, Yii::app()->params['siteTheme'] );
 
 $_user = Yii::app()->getUser()->isGuest ? null : Yii::app()->getUser();
 $_name = $_user ? $_user->first_name_text : 'Fellow Yii Enthusiast';

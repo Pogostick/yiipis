@@ -27,6 +27,7 @@
 
 html, body {
 	background-color:#050505;
+	height:100%;
 }
 
 body
@@ -39,21 +40,22 @@ body
 	min-width: 1030px !important;
 	overflow: auto;
 	padding: 0px;
-	margin:0px;
 	width: 100%;
     opacity: 0.99;
+	text-align: center;
+	margin: 0px auto -30px;
 }
 
 body.container {
 	height: 100%;
-	margin: 0px auto;
 	width: 100%;
 }
 
 body.generic, body.home {
 	background-color: #050505;
 	height: auto;
-	overflow: hidden;
+	overflow: auto;
+	text-align: left;
 }
 
 p {
@@ -140,7 +142,9 @@ ul li a:hover {
 
 #page
 {
-	margin:125px 0 5px;
+	min-height: 100%;
+	height: auto !important;
+	margin: 125px auto -142px; /* the bottom margin is the negative value of the footer's height */
 }
 
 #page.short {
@@ -298,7 +302,7 @@ div#header
 	margin-bottom:25px;
 	min-width:1030px !important;
 	padding:0;
-	position:fixed;
+	position:absolute;
 	text-shadow:1px 1px 1px #FFFFFF;
 	top:0;
 	width:100%;
@@ -495,20 +499,24 @@ h3 {
     font-weight: 700;
     }
 
+.push {
+		height:30px;
+}
+
 #footer
 {
 	border-top:1px solid #3178b2;
 	min-width: 1030px !important;
 	background-color:#CACACA;
-	bottom:0;
 	color:#010101;
 	font-size:11px;
 	height:30px;
 	padding:3px;
-	position:absolute;
+	position:relative;
 	text-shadow:1px 1px 1px #FFFFFF;
 	width:100% !important;
 	line-height:25px;
+	overflow:hidden!important;
 }
 
 	#footer .footer-block {
@@ -574,15 +582,12 @@ h3 {
 		display:inline-block;
 		float:right;
 		font-size:13px;
-		line-height:26px;
-		min-width:50%;
-		padding:0 10px 0 0;
-		position:absolute;
-		right:2px;
-		text-align:right;
-		top:2px;
+		padding:0px;
+		margin:2px 2p;
 		vertical-align:top;
 		white-space:nowrap;
+		width:auto!important;
+		text-align:left;
 	}
 
 		#footer-copyright a, #footer-copyright a:visited, #footer-copyright a:active {
@@ -694,6 +699,7 @@ div#inner-page-menu {
 	display:inline-block;
 	position:relative;
 	margin:0 auto;
+	text-align:center;
 }
 
 div#inner-page-menu span.inner-page-menu-item {
@@ -702,11 +708,11 @@ div#inner-page-menu span.inner-page-menu-item {
 	border:3px solid #75B1E1;
 	cursor:pointer;
 	display:inline-block;
-	float:left;
-	margin:0 auto 50px 50px;
+	margin:0 50px 25px;
 	position:relative;
 	text-align:left;
-	width:40%;
+	width:450px;
+	min-height: 138px;
 }
 
 div#inner-page-menu span.inner-page-menu-item.clear {
@@ -714,11 +720,13 @@ div#inner-page-menu span.inner-page-menu-item.clear {
 }
 
 div#inner-page-menu span.inner-page-menu-item h1 {
-	margin-top:10px;
-	color:#E27A3B;
-	text-shadow:1px 1px 0px #fff;
-	text-align:left;
-	margin-left:140px;
+	color: #E27A3B;
+	margin-left: 140px;
+	margin-right: 20px;
+	margin-top: 10px;
+	text-align: left;
+	text-shadow: white 1px 1px 0px;
+	white-space: nowrap;
 }
 
 div#inner-page-menu span.inner-page-menu-item-icon {

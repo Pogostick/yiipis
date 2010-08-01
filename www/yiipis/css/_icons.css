@@ -54,6 +54,26 @@
 		background-image:url(/images/icons/menu-icon-x.png);
 	}
 
+	.yiipis-menu-icon-check {
+		background-image:url(/images/icons/menu-icon-check.png);
+	}
+
+	.yiipis-menu-icon-arrow-up {
+		background-image:url(/images/icons/menu-icon-arrow-up.png);
+	}
+
+	.yiipis-menu-icon-arrow-down {
+		background-image:url(/images/icons/menu-icon-arrow-down.png);
+	}
+
+	.yiipis-menu-icon-radio-open {
+		background-image:url(/images/icons/menu-icon-radio-open.png);
+	}
+
+	.yiipis-menu-icon-radio-closed {
+		background-image:url(/images/icons/menu-icon-radio-closed.png);
+	}
+
 /**
 * Basic icon
 */

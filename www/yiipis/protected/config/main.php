@@ -53,6 +53,9 @@ return array(
 		'urlManager' => array(
 			'urlFormat' => 'path',
 			'showScriptName' => false,
+			'rules' => array(
+//				'<view:\w+>' => 'site/_static',
+			),
 		),
 
 		//	caching engine
@@ -68,14 +71,6 @@ return array(
 
 		'errorHandler' => array(
 			'errorAction' => '/site/error',
-		),
-
-		'urlManager' => array(
-			'urlFormat' => 'path',
-			'showScriptName' => false,
-			'rules' => array(
-				'<view:\w+>' => 'site/_static',
-			),
 		),
 
 		//	Database (Site)
@@ -104,7 +99,8 @@ return array(
 
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
-	'params'=>array(
+	'params' => array(
+		'siteTheme' => 'pepper-grinder',
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),

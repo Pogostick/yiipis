@@ -43,20 +43,29 @@ div.form textarea,
 div.form select
 {
 	margin: 0.2em 0 0.5em 0;
+	padding:2px;
 }
 
 div.form fieldset
 {
-	border: 1px solid #DDD;
 	padding: 10px;
-	margin: 0 0 10px 0;
-    -moz-border-radius:7px;
+	margin:10px;
+    -moz-border-radius:0px 10px 0px 0px;
+    -webkit-border-radius:0px 10px 0px 0px;
+	font-weight:bold;
+	text-shadow:1px 1px 1px #FFFFFF;
+	color:#333;
+}
+
+div.form fieldset legend
+{
+	font-size:120%;
 }
 
 div.form label
 {
 	font-weight: bold;
-	font-size: 0.9em;
+	font-size: 13px;
 	display: block;
 }
 

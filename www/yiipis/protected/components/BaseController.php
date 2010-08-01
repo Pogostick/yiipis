@@ -32,20 +32,20 @@ class BaseController extends CPSController
 	/**
 	 * @var array context menu items. This property will be assigned to {@link CMenu::items}.
 	 */
-	protected $m_arMenu = array();
-	public function getMenu() { return $this->m_arMenu; }
-	public function setMenu( $arValue ) { $this->m_sMenu = $arValue; }
+	protected $_menu = array();
+	public function getMenu() { return $this->_menu; }
+	public function setMenu( $value ) { $this->_menu = $value; }
 
 	/**
 	 * @var array the breadcrumbs of the current page. The value of this property will
 	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
 	 * for more details on how to specify this property.
 	 */
-	protected $m_arBreadcrumbs = array();
-	public function getBreadcrumbs() { return $this->m_arBreadcrumbs; }
-	public function setBreadcrumbs( $arValue ) { $this->m_arBreadcrumbs = $arValue; }
+	protected $_breadcrumbs = array();
+	public function getBreadcrumbs() { return $this->_breadcrumbs; }
+	public function setBreadcrumbs( $value ) { $this->_breadcrumbs = $value; }
 
-	protected $_displayName = 'Application Manager';
+	protected $_displayName;
 	protected function setDisplayName( $value ) { $this->_displayName = $value; }
 	protected function getDisplayName() { return $this->_displayName; }
 
@@ -57,12 +57,14 @@ class BaseController extends CPSController
 	//* Public Funnctions
 	//********************************************************************************
 
+	/**
+	 * Initialize
+	 */
 	public function init()
 	{
 		parent::init();
-
-		//	We want a single column here...
-//		$this->_contentLayout = '_oneColumn';
+		$this->_cleanTrail = $this->_displayName;
+		$this->defaultAction = 'index';
 	}
 
 	/**
@@ -83,15 +85,15 @@ class BaseController extends CPSController
 	 */
 	public function actionError()
 	{
-		if ( ! $_arError = Yii::app()->errorHandler->error )
+		if ( ! $_error = Yii::app()->getErrorHandler()->getError() )
 		{
-			if ( $this->isAjaxRequest )
-				echo $_arError['message'];
-			else
+			if ( ! $this->isAjaxRequest )
 				throw new CHttpException( 404, 'Page not found.' );
-		}
 
-		$this->render( 'error', $_arError );
+			echo $_error['message'];
+		}
+print_r($_error);
+		$this->render( 'error', $_error );
 	}
 
 }
