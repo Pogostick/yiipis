@@ -1,0 +1,170 @@
+/**
+ * _footer stylesheet
+ *
+ * @package 	yiipis
+ * @subpackage 	css.layouts
+ *
+ * @author 		Jerry Ablan <jablan@pogostick.com>
+ * @since 		v1.0.0
+ *
+ * @filesource
+ */
+
+#footer
+{
+	background:url(/images/footer-menu/footer-menu-bg.png) top left repeat-x;
+	display:block;
+	font-size:11px;
+	color:#efefef;
+	min-width: 940px !important;
+	height:35px !important;
+	overflow:visible;
+	clear:both;
+	padding:0px;
+}
+
+	#footer .footer-block {
+		display:inline-block;
+		height:28px;
+		margin:2px;
+		padding:0;
+		vertical-align:baseline;
+		width:auto;
+	}
+
+	#footer #footer-menu {
+		font-size:11px;
+		list-style:none outside none;
+		margin:0;
+		padding:0;
+		white-space:nowrap;
+		width:330px;
+	}
+
+	#footer-menu div.ul-menu {
+		font-size: 13px;
+		margin:3px 4px 4px 6px;
+		padding:0;
+		text-align: left;
+		color:#efefef;
+		position:absolute;
+		top:0;
+		left:0;
+	}
+
+		#footer-menu div.ul-menu ul {
+			list-style:none outside none;
+			position:relative;
+			z-index:20;
+			margin:0;
+			padding:0;
+		}
+
+			#footer-menu div.ul-menu ul li {
+				display:inline;
+				margin:0 2px;
+				position:relative;
+				vertical-align:middle;
+				color:#aaa;
+			}
+
+	#footer #footer-menu a, #footer #footer-menu a:visited, #footer #footer-menu a:active {
+		color:#aaa;
+		font-size:11px;
+	}
+
+	#footer #footer-copyright {
+		cursor:help;
+		display:inline-block;
+		float:right;
+		font-size:13px;
+		padding:0 10px 0 0;
+		margin:2px 2px;
+		vertical-align:top;
+		white-space:nowrap;
+		width:auto!important;
+		text-align:left;
+	}
+
+		#footer-copyright a, #footer-copyright a:visited, #footer-copyright a:active {
+			color: #eee;
+			font-size:13px;
+			text-decoration:none;
+		}
+
+		#footer-copyright a:hover {
+			color:#fff;
+			text-decoration:underline;
+		}
+
+	#footer #footer-credits {
+		display: inline;
+		float: right;
+		font-size: 13px;
+		height: 30px;
+		margin-left: 0px;
+		margin-right: 15px;
+		padding-left: 0px;
+		padding-right: 0px;
+		text-align: right;
+		white-space: nowrap;
+		width: 270px !important;
+	}
+
+		#footer #footer-credits a {
+			color:#010101;
+			text-decoration:none;
+			margin-right:0px;
+			padding-right:0px;
+		}
+
+		#footer #footer-credits span#yii-powered a:hover {
+			text-decoration:underline;
+		}
+
+	#footer span.yii-icon {
+		display: inline-block;
+		height: 16px;
+		width:16px;
+		margin: 0px 5px 2px 2px;
+		padding-right:0px;
+		vertical-align:middle;
+		background:url('/images/yii-icon.png') top left no-repeat;
+	}
+
+	#footer span.ps-icon {
+		display: inline-block;
+		height: 30px;
+		width:78px;
+		margin:-2px auto 0px 5px;
+		padding:0px;
+		vertical-align:middle;
+		background:url('/images/ps-logo-30.png') top left no-repeat;
+	}
+
+	#footer span.faux-spacer {
+		background-color:#444444;
+		border:1px solid #252525;
+		display:inline-block;
+		height:26px;
+		margin:4px;
+		padding:0;
+		width:1px;
+	}
+
+	#footer .content {
+		display: block;
+		position: absolute;
+		margin: -228px 0 0 0;
+		top: 45%;
+		left: auto;
+		padding: 0 0 0 50px;
+	}
+
+	#footer h2.logo {
+		margin: 0 0 25px 0;
+		position: static;
+		top: auto;
+		left: auto;
+	}
+

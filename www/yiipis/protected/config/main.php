@@ -2,7 +2,7 @@
 //	Pogostick Yii Extensions
 Yii::setPathOfAlias( 'pogostick', '/usr/local/psYiiExtensions/extensions/pogostick' );
 
-$_sDBHost = 'localhost';
+$_sDBHost = 'scoozi.gna.me';
 $_sDBName = 'yiipis';
 $_sDBUserName = 'yiipis_user';
 $_sDBPassword = 'yiipis_user';
@@ -16,7 +16,7 @@ return array(
 	'basePath' => dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..',
 	'runtimePath' => $_sLogPath,
 
-	'preload' => array( 'log', 'yiipis' ),
+	'preload' => array( 'log', ( PHP_SAPI != 'cli' ? 'yiipis' : null ) ),
 
 	'import' => array(
 		'application.models.*',

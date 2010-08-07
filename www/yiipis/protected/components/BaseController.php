@@ -92,7 +92,7 @@ class BaseController extends CPSController
 
 			echo $_error['message'];
 		}
-print_r($_error);
+
 		$this->render( 'error', $_error );
 	}
 

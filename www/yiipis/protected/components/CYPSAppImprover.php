@@ -57,6 +57,9 @@ class CYPSAppImprover extends CController
 	protected $_importList;
 	public function getImportList() { return $this->_importList; }
 
+	protected $_layoutPath;
+	protected $_analysisMap;
+
 	//********************************************************************************
 	//* Public Methods
 	//********************************************************************************
@@ -83,6 +86,13 @@ class CYPSAppImprover extends CController
 		Yii::app()->controllerMap[ self::CONTROLLER_ID ] = array(
 			'class' => __CLASS__,
 		);
+
+		//	Grab the errors for a clean experience...
+		set_error_handler( function( $errNo, $errStr, $errFile, $errLine, $errContext ) {
+			throw new CException( $errStr, $errNo );
+		}, E_ERROR );
+
+		$this->_layoutPath = Yii::app()->getLayoutPath();
 	}
 
 	//********************************************************************************
@@ -110,12 +120,27 @@ class CYPSAppImprover extends CController
 		$_dir = array();
 		$_config = $this->actionGetAppConfig( true );
 
+		$this->_analysisMap = array(
+			'component' => array(),
+			'controller' => array(),
+			'model' => array(),
+			'behavior' => array(),
+			'event' => array(),
+			'widget' => array(),
+			'exception' => array(),
+			'other' => array(),
+		);
+
+		ob_start();
+
 		//	Look at imports...
 		foreach ( $_config['import'] as $_path )
 		{
 			//	Search each path for classes
 			$_dir[ $_path ] = $this->_getDirectoryTree( $_path );
 		}
+
+		ob_end_clean();
 
 		//	Return
 		$this->_echoJSON(
@@ -124,9 +149,12 @@ class CYPSAppImprover extends CController
 					'imports' => $this->_importList,
 					'fileTree' => $_dir,
 					'appConfig' => $_config,
+					'analysisMap' => $this->_analysisMap,
 				),
 			)
 		);
+
+		Yii::app()->end();
 	}
 
 	/**
@@ -143,6 +171,7 @@ class CYPSAppImprover extends CController
 		if ( is_string( $config ) ) $_config = include( $config );
 
 		if ( $returnRawConfig ) return $_config;
+
 		$this->_echoJSON( $_config );
 	}
 
@@ -166,7 +195,22 @@ class CYPSAppImprover extends CController
         while ( $_dir && false !== ( $_folder = $_dir->read() ) )
 		{
 			if ( $_folder != '.' && $_folder != '..' )
-				$_result[ $_folder ] = ( is_dir( $_path . $_folder ) ? $this->_getDirectoryTree( $_path . $_key . DIRECTORY_SEPARATOR ) : is_file( $_path .$_folder ) );
+			{
+				$_fullFilePath = $_path . DIRECTORY_SEPARATOR . $_folder;
+
+				if ( is_dir( $_fullFilePath ) )
+				{
+					$_result[ $_folder ] = $this->_getDirectoryTree( $_path . DIRECTORY_SEPARATOR );
+				}
+				else
+				{
+					if ( $_result[ $_folder ] = is_file( $_fullFilePath ) )
+					{
+						$_parsedFile = $this->_parseFile( $_path, $_folder );
+						$_result['classMap'][ $_fullFilePath ] = $_parsedFile;
+					}
+				}
+			}
 		}
 
 		ksort( $_result );
@@ -187,7 +231,9 @@ class CYPSAppImprover extends CController
 		$_className = ( count( $_pathParts ) > 1 ) ? $_pathParts[ count( $_pathParts ) - 1 ] : $alias;
 		
 		if ( $_className != '*' && ( class_exists( $alias, false ) || interface_exists( $alias, false ) ) )
+		{
 			return $this->_importList[ $alias ] = $_className;
+		}
 		
 		if ( false !== ( $_path = Yii::getPathOfAlias( $alias ) ) )
 		{
@@ -196,6 +242,55 @@ class CYPSAppImprover extends CController
 
 			return $this->_importList[ $alias ] = $_path;
 		}
+	}
+
+	/**
+	 * Parses a class file for interesting tidbits
+	 * @param string $fileName
+	 * @returns array
+	 */
+	protected function _parseFile( $path, $fileName )
+	{
+		$_results = array();
+
+		try
+		{
+			$_className = str_ireplace( array( '.class.php', '.php' ), '', $fileName );
+
+			if ( $_class = new ReflectionClass( $_className ) )
+			{
+				$_results['name'] = $_class->getName();
+				$_results['path'] = $path;
+				$_results['fileName'] = $fileName;
+
+				if ( $_class->isSubclassOf( 'CController' ) )
+					$_results['type'] = 'controller';
+				else if ( $_class->isSubclassOf( 'CComponent' ) )
+					$_results['type'] = 'component';
+				else if ( $_class->isSubclassOf( 'CModel' ) )
+					$_results['type'] = 'model';
+				else if ( $_class->isSubclassOf( 'CBehavior' ) )
+					$_results['type'] = 'behavior';
+				else if ( $_class->isSubclassOf( 'CEvent' ) )
+					$_results['type'] = 'event';
+				else if ( $_class->isSubclassOf( 'CWidget' ) )
+					$_results['type'] = 'widget';
+				else if ( $_class->isSubclassOf( 'CException' ) )
+					$_results['type'] = 'exception';
+				else
+					$_results['type'] = 'other';
+
+				
+
+				$this->_analysisMap[$_results['type']][] = array( 'ref' => $_class );
+			}
+		}
+		catch ( Exception $_ex )
+		{
+			//	Not a PHP file or has an error...
+		}
+
+		return $_results;
 	}
 
 	/**

@@ -68,7 +68,7 @@ PS::_rcf( '/css/layouts/_header.css' );
 					$('div.curtain.top').hide();
 					$('li.welcome-text').fadeOut();
 
-					_logo.hide('slide',{queue:false,direction:'up',duration:'fast'});
+					_logo.hide('drop',{queue:false,direction:'up',duration:'fast'});
 						_menu.animate({marginTop:'2px'},500,function(){
 					});
 

@@ -1,55 +1,108 @@
-.slideup-menu {
-	-moz-border-radius:3px 3px 3px 3px;
-	-webkit-border-radius:3px 3px 3px 3px;
-	background-color:#333333;
-	border:1px solid #ccc;
-	bottom:9px;
-	color:#FFFFFF !important;
-	display:none;
-	height:auto;
-	left:8px;
-	line-height:21px;
-	overflow:hidden !important;
-	position:absolute;
-	text-shadow:none;
-	width:200px;
-	z-index:30;
-	padding-bottom:20px;
-}
-
-.slideup-menu span.slideup-show-hide {
-	position:absolute;
-	bottom:5px;
-	right:5px;
-	display:block;
-}
-
-.slideup-menu ul {
-	color:#FFFFFF;
+ul.footer-menu-top-menu {
+	background:url("/images/footer-menu/footer-menu-bg.png") repeat-x scroll 0 0 transparent;
+	float:left;
+	font-size:1.25em;
 	list-style:none outside none;
 	margin:0;
-	padding:0 0 5px 0;
+	padding:0 20px;
+	width:920px;
 }
 
-.slideup-menu ul li {
-	color:#FFFFFF;
-	margin:0;
-	padding:0;
-	font-size:13px;
-}
+	ul.footer-menu-top-menu li {
+		float: left;
+		margin: 0;
+		padding: 0 15px 0 0;
+		position: relative; /*--Declare X and Y axis base for sub navigation--*/
+	}
 
-.slideup-menu ul li a, .slideup-menu ul li a:active, .slideup-menu ul li a:visited {
-	padding-left:5px;
-	background-color:transparent;
-	color: #fff !important;
-	font-size:13px !important;
-}
+		ul.footer-menu-top-menu li a{
+			-moz-border-radius:0 0 0 0 !important;
+			background:none repeat scroll 0 0 transparent !important;
+			color:#FFFFFF;
+			display:block;
+			float:left;
+			padding:5px;
+			text-align:center;
+			text-decoration:none;
+			width:75px;
+		}
 
-.slideup-menu ul h3 {
-	background-color:#666666;
-	color:#AAAAAA;
-	font-size:17px;
-	margin:0px;
-	padding:5px;
-	text-shadow:0 0 #CCCCCC;
-}
+			ul.footer-menu-top-menu li a:hover{
+				background:url(/images/footer-menu/footer-menu-button-hover.png) no-repeat center top !important;
+			}
+
+	/*--Drop down trigger styles--*/
+	ul.footer-menu-top-menu li span {
+		width: 17px;
+		height: 35px;
+		float: left;
+		background:url(/images/footer-menu/footer-menu-nav-button-sprite.png) no-repeat center 15px !important;
+		margin-left:-5px;
+	}
+
+		ul.footer-menu-top-menu li span.footer-menu-sub-menu-hover {
+			background-position: center top !important;
+			cursor: pointer;
+		}
+
+		/*--Hover effect for trigger--*/
+		ul.footer-menu-top-menu li ul.footer-menu-sub-menu {
+			list-style: none;
+			position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+			left: 0;
+			bottom: 36px;
+			background: #333;
+			margin: 0; padding: 0;
+			display: block;
+			float: left;
+			width: 170px;
+			border: 1px solid #111;
+			overflow:hidden;
+			display:none;
+		}
+
+			ul.footer-menu-top-menu li ul.footer-menu-sub-menu li{
+				margin: 0; padding: 0;
+				border-top: 1px solid #252525; /*--Create bevel effect--*/
+				border-bottom: 1px solid #444; /*--Create bevel effect--*/
+				clear: both;
+				width: 170px;
+				position:relative;
+			}
+
+			ul.footer-menu-top-menu li ul.footer-menu-sub-menu li h3 {
+				border-bottom:1px solid #252525;
+				color:#FFFFFF;
+				font-size:13px;
+				font-weight:bold;
+				line-height:20px;
+				margin:0;
+				padding:0 0 3px 10px;
+			}
+
+			ul.footer-menu-top-menu li ul.footer-menu-sub-menu li a {
+				background:url("/images/footer-menu/footer-menu-sub-nav-arrow.png") no-repeat scroll top center transparent;
+				float:left;
+				font-size:13px;
+				margin-bottom:0;
+				margin-top:1px;
+				padding:1px 0 4px 22px;
+				position:relative;
+				text-align:left;
+				vertical-align:middle;
+				width:140px;
+				color:#ccc;
+				white-space: nowrap;
+			}
+
+				ul.footer-menu-top-menu li ul.footer-menu-sub-menu li a:hover { /*--Hover effect for subnav links--*/
+					background: #222 url(/images/footer-menu/footer-menu-sub-nav-arrow.png) no-repeat 10px center !important;
+					color:#fff;
+					text-shadow:1px 1px 0 #111111;
+					width:100%;
+				}
+
+		ul.footer-menu-top-menu li ul.footer-menu-sub-menu span {
+			display: none !important;
+		}
+

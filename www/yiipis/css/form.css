@@ -34,8 +34,11 @@
  * @license http://www.yiiframework.com/license/
  */
 
-div.form
-{
+div.form {
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	padding:15px;
+	background:url(/images/form-background.jpg) top left;
 }
 
 div.form input,
@@ -46,12 +49,17 @@ div.form select
 	padding:2px;
 }
 
+div.form input[type="text"] {
+	border:1px solid #b8b8b8;
+	margin-bottom:0px;
+}
+
+
 div.form fieldset
 {
 	padding: 10px;
 	margin:10px;
-    -moz-border-radius:0px 10px 0px 0px;
-    -webkit-border-radius:0px 10px 0px 0px;
+	border-color:#efefef;
 	font-weight:bold;
 	text-shadow:1px 1px 1px #FFFFFF;
 	color:#333;
@@ -60,13 +68,21 @@ div.form fieldset
 div.form fieldset legend
 {
 	font-size:120%;
+	font-weight:normal;
+	padding-left:5px;
+	padding-right:5px;
+	color: #e6592d;
+	text-shadow:1px 1px 1px #FFFFFF;
 }
 
 div.form label
 {
 	font-weight: bold;
-	font-size: 13px;
-	display: block;
+	font-size: 15px;
+	display: inline-block;
+	width:150px;
+	text-align:right;
+	margin-right:10px;
 }
 
 div.form .row
@@ -76,9 +92,10 @@ div.form .row
 
 div.form .hint
 {
-	margin: 0;
+	margin: 0px 0 0 160px;
 	padding: 0;
 	color: #999;
+	font-size:11px;
 }
 
 div.form .note
@@ -88,7 +105,7 @@ div.form .note
 
 div.form span.required
 {
-	color: red;
+	color: #e6592d;
 }
 
 div.form div.error label,

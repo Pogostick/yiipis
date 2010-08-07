@@ -17,6 +17,7 @@
 	<meta name="language" content="en" />
 
 	<link rel="stylesheet" type="text/css" href="<?php echo $_baseUrl; ?>/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $_baseUrl; ?>/css/form.css" />
 <!--[if !IE 7]>
 	<style type="text/css">
 		#page {display:table;height:100%}

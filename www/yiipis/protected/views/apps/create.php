@@ -40,6 +40,7 @@
  */
 
 $this->pageTitle = Yii::app()->name;
+PS::setFormFieldContainerClass('row');
 
 $_formOptions = array(
 	//	Info
@@ -76,25 +77,23 @@ $_formOptions = array(
 
 //	Build out our form fields
 $_formOptions['fields'] = array(
-	array( 'beginFieldset', 'Vanity' ),
-		array( PS::TEXT, 'app_name_text' ),
+	array( 'beginFieldset', 'Identification' ),
+		array( PS::TEXT, 'app_name_text', array( 'hint' => 'A name by which to reference this application.' ) ),
 	array( 'endFieldset' ),
 
-	array( 'beginFieldset', 'The Basics' ),
-	array( 'endFieldset' ),
-
-	array( 'beginFieldset', 'Your Website<span class="help"></span>', array( 'id' => 'publisher-site-info', 'style' => 'display:none;' ) ),
-	array( 'endFieldset' ),
-
-	array( 'beginFieldset', 'Mailing Address' ),
+	array( 'beginFieldset', 'Location' ),
+		array( PS::TEXT, 'app_url_text', array( 'hint' => 'The URL to your Yii site.' )  ),
+		array( PS::TEXT, 'dev_app_url_text', array( 'hint' => 'The URL to your development site, if applicable.' ) ),
+		array( PS::DROPDOWN, 'server_id', array( 'data' => array(0=>'a')) ),
+		array( PS::DROPDOWN, 'dev_server_id', array( 'data' => array(0=>'a')) ),
 	array( 'endFieldset' ),
 );
 ?>
+
 <h1>Add an App</h1>
 
 <div>
-	<p>One of the key benefits of YiiPIS is the application management features. To utilize these features, however, you must tell YiiPIS all about your app.</p>
-	<p>This page allows you to do so.</p>
+	<p>One of the key benefits of YiiPIS is the application management features. To utilize these features, however, you must tell YiiPIS all about your app. This page allows you to do so.</p>
 </div>
 
 <?php CPSForm::create( $_formOptions ); ?>

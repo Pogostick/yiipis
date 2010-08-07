@@ -39,7 +39,7 @@ html, body {
 body
 {
 	color: #CCC;
-    font: 13px/21px "helvetica neue",arial,"tahoma","lucida grande",verdana,arial,sans-serif;
+    font: 13px/21px "helvetica neue","trebuchet ms",arial,"tahoma","lucida grande",verdana,arial,sans-serif;
 	background-color: #050505;
 	height: 100%;
 	width: 100%;
@@ -75,7 +75,7 @@ p {
     display: block;
     font-size: 11px;
     font-size: 15px;
-    padding: 5px 10px 20px 0;
+    padding: 0 5px 5px;
 }
 
 p a {
@@ -148,9 +148,20 @@ body.br-chrome #page {
 
 div#content-wrapper {
 	overflow:auto;
-	padding-bottom: 30px;
-}  /* must be same height as the footer */
+	padding-bottom: 30px; /* must be same height as the footer */
+	margin-top:0px;
+}  
 
+	div#content-wrapper h1 {
+		color: #fff;
+		font-weight:bold;
+		text-shadow: 0px 0px 10px #E27A3B;
+		white-space: nowrap;
+	}
+
+	div#content-column div.ui-edit-container {
+		margin-top:10px;
+	}
 
 div.flash-error
 {
@@ -492,4 +503,24 @@ div#inner-page-menu span.inner-page-menu-item p {
 */
 .inner-page-menu-item.right {
 	margin-left:0px;
+}
+
+div#content-navigation {
+	display:none;
+}
+
+table.detail-view {
+	color:#333;
+	font-size:1.10em !important;
+	text-shadow:none;
+}
+
+table.detail-view th {
+	font-weight:bold;
+	text-shadow: #FFF 1px 1px 0px;
+	width:250px !important;
+}
+
+table.detail-view .null {
+	color:darkred !important;
 }

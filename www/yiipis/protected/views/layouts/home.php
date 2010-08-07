@@ -33,7 +33,8 @@ PS::_rcf( '/css/layouts/_oneColumn.css' );
 //	Site-level self-contained scripts
 PS::_rsf(
 	array(
-		'jquery-plugins/jsTree/_lib/jquery.cookie.js',
+		'jquery-plugins/cookie/jquery.cookie.js',
+		'jquery-plugins/jquery.hoverintent.min.js',
 		'jquery-plugins/jsTree/jquery.jstree.js',
 		'jquery-plugins/rainbows/rainbows.js',
 		'/scripts/site.jquery.js',

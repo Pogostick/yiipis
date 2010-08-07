@@ -19,6 +19,8 @@
  * @filesource
  */
 
+var __timerId;
+
 $(function() {
 	$('.yiipis-icon-autohover').live('mouseover mouseout',function(e) {
 		if (e.type == 'mouseover') {
@@ -44,10 +46,18 @@ $(function() {
 		}
 	});
 
+	$('span.yii-icon').live('mouseover mouseout',function(e){
+		if ( e.type == 'mouseover' ) {
+			$(this).stop().effect('pulsate',{times:3});
+		} else {
+			$(this).stop();
+		}
+	});
+
 	$('#header-logo').click(function(e){
 		e.preventDefault();
 		window.location.href = '/';
 		return false;
 	})
-});
 
+});
