@@ -14,10 +14,26 @@
  * @filesource
  */
 
+//	Determine from whence you've come...
+$_userGreeting = PS::_gs( 'userGreeting' );
+
+if ( ! $_userGreeting && $_referrer = PS::_gr()->getUrlReferrer() )
+{
+	if ( false !== stripos( $_referrer, '.yiiframework.com' ) )
+		$_userGreeting = 'Yii Developer';
+	else if ( false !== stripos( $_referrer, '.github.com' ) )
+		$_userGreeting = 'Github User';
+}
+
+if ( ! $_userGreeting )
+	$_userGreeting = 'Yii-ster';
+
+PS::_ss( 'userGreeting', $_userGreeting );
+
 //	Helper variables
 $_baseUrl = PS::_gbu();
-$_user = Yii::app()->getUser()->isGuest ? null : Yii::app()->getUser();
-$_name = $_user ? $_user->first_name_text : 'Fellow Yii Enthusiast';
+$_user = PS::_gu()->isGuest ? null : PS::_gu();
+$_name = $_user ? $_user->first_name_text : $_userGreeting;
 $_link = PS::tag( 'li', array(), $_user ? PS::link( 'logout', 'logout' ) : PS::link( 'login', 'login' ) );
 
 //	Let's get the jQuery UI stuff going...

@@ -5,7 +5,6 @@ ul.footer-menu-top-menu {
 	list-style:none outside none;
 	margin:0;
 	padding:0 20px;
-	width:920px;
 }
 
 	ul.footer-menu-top-menu li {
@@ -28,7 +27,7 @@ ul.footer-menu-top-menu {
 		}
 
 			ul.footer-menu-top-menu li a:hover{
-				background:url(/images/footer-menu/footer-menu-button-hover.png) no-repeat center top !important;
+				background:url(/images/footer-menu/footer-menu-button-hover.png) top center no-repeat !important;
 			}
 
 	/*--Drop down trigger styles--*/
@@ -36,8 +35,12 @@ ul.footer-menu-top-menu {
 		width: 17px;
 		height: 35px;
 		float: left;
-		background:url(/images/footer-menu/footer-menu-nav-button-sprite.png) no-repeat center 15px !important;
+		background:url(/images/footer-menu/footer-menu-nav-button-sprite.png) center 15px no-repeat;
 		margin-left:-5px;
+	}
+
+	ul.footer-menu-top-menu li span.opened {
+		background:url(/images/footer-menu/footer-menu-nav-button-sprite.png) center -19px no-repeat !important;
 	}
 
 		ul.footer-menu-top-menu li span.footer-menu-sub-menu-hover {
@@ -73,7 +76,7 @@ ul.footer-menu-top-menu {
 			ul.footer-menu-top-menu li ul.footer-menu-sub-menu li h3 {
 				border-bottom:1px solid #252525;
 				color:#FFFFFF;
-				font-size:13px;
+				font-size:10pt;
 				font-weight:bold;
 				line-height:20px;
 				margin:0;
@@ -83,7 +86,7 @@ ul.footer-menu-top-menu {
 			ul.footer-menu-top-menu li ul.footer-menu-sub-menu li a {
 				background:url("/images/footer-menu/footer-menu-sub-nav-arrow.png") no-repeat scroll top center transparent;
 				float:left;
-				font-size:13px;
+				font-size:8pt;
 				margin-bottom:0;
 				margin-top:1px;
 				padding:1px 0 4px 22px;

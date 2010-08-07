@@ -15,6 +15,7 @@ return array(
 	'name' => 'Yii Project Improvement Suite',
 	'basePath' => dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..',
 	'runtimePath' => $_sLogPath,
+	'defaultController' => 'default',
 
 	'preload' => array( 'log', ( PHP_SAPI != 'cli' ? 'yiipis' : null ) ),
 
@@ -70,7 +71,7 @@ return array(
 		),
 
 		'errorHandler' => array(
-			'errorAction' => '/site/error',
+			'errorAction' => '/default/error',
 		),
 
 		//	Database (Site)

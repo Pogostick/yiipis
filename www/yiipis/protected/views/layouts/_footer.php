@@ -47,10 +47,10 @@ PS::_rsf( '/scripts/site.footer-menu.js' );
 					</li>
 					<li>
 						<h3>Options</h3>
-						<a href="#">Add a Server...</a>
+						<a href="/servers/add/">Add a Server...</a>
 					</li>
 					<li>
-						<a href="#">Manage Servers...</a>
+						<a href="/servers/admin/">Manage Servers...</a>
 					</li>
 				</ul>
 			</li>
@@ -69,10 +69,10 @@ PS::_rsf( '/scripts/site.footer-menu.js' );
 					</li>
 					<li>
 						<h3>Options</h3>
-						<a href="#">Add a Database...</a>
+						<a href="/databases/add/">Add a Database...</a>
 					</li>
 					<li>
-						<a href="#">Manage Databases...</a>
+						<a href="/databases/admin/">Manage Databases...</a>
 					</li>
 				</ul>
 			</li>
@@ -92,16 +92,16 @@ PS::_rsf( '/scripts/site.footer-menu.js' );
 					</li>
 					<li>
 						<h3>Options</h3>
-						<a href="#">Add a Config...</a>
+						<a href="/configs/add/">Add a Config...</a>
 					</li>
 					<li>
-						<a href="#">Manage Configs...</a>
+						<a href="/configs/admin/">Manage Configs...</a>
 					</li>
 				</ul>
 			</li>
 
 			<li>
-				<a href="#">Apps</a>
+				<a href="/apps/">Apps</a>
 				<ul id="fm-apps" class="footer-menu-sub-menu">
 					<li>
 						<h3>Available Apps</h3>
@@ -115,10 +115,10 @@ PS::_rsf( '/scripts/site.footer-menu.js' );
 					</li>
 					<li>
 						<h3>Options</h3>
-						<a href="#">Add an App...</a>
+						<a href="/apps/add/">Add an App...</a>
 					</li>
 					<li>
-						<a href="#">Manage Apps...</a>
+						<a href="/apps/admin/">Manage Apps...</a>
 					</li>
 				</ul>
 			</li>

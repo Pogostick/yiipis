@@ -33,7 +33,7 @@
 html, body {
 	background-color:#050505;
 	height:100%;
-	min-width: 940px !important;
+	min-width: 1073px !important;
 }
 
 body
@@ -135,7 +135,7 @@ ul li a:hover {
 {
 	min-height: 100%;
 	height: auto !important;
-	margin: 125px auto -37px; /* the bottom margin is the negative value of the footer's height */
+	margin: 125px auto -36px; /* the bottom margin is the negative value of the footer's height */
 }
 
 body.br-chrome #page {
@@ -294,6 +294,11 @@ div.ul-menu {
 
 .yiipis {
 	color:#e6592d;
+	text-shadow: none;
+}
+
+.yiipis-neon {
+	text-shadow: 0px 0px 10px #E27A3B;
 }
 
 .body img.left { float: left; clear: none; margin: 0 14px 10px 0 !important;  }
