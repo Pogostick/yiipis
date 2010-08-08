@@ -21,6 +21,7 @@ return array(
 
 	'import' => array(
 		'application.models.*',
+		'application.models.forms.*',
 		'application.components.*',
 		'application.controllers.*',
 		'application.zii.*',
@@ -49,6 +50,7 @@ return array(
 		'user' => array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			'loginUrl' => array( 'default/login' ),
 		),
 
 		'urlManager' => array(
@@ -101,7 +103,7 @@ return array(
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params' => array(
-		'siteTheme' => 'pepper-grinder',
+		'siteTheme' => 'eggplant',
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),

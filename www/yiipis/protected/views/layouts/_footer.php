@@ -33,7 +33,7 @@ PS::_rsf( '/scripts/site.footer-menu.js' );
 	<span id="footer-menu-container">
 		<ul class="footer-menu-top-menu">
 			<li>
-				<a href="#">Servers</a>
+				<a href="/servers">Servers</a>
 				<ul id="fm-servers" class="footer-menu-sub-menu">
 					<li>
 						<h3>Available Servers</h3>
@@ -47,10 +47,10 @@ PS::_rsf( '/scripts/site.footer-menu.js' );
 					</li>
 					<li>
 						<h3>Options</h3>
-						<a href="/servers/add/">Add a Server...</a>
+						<a href="/servers/add">Add a Server...</a>
 					</li>
 					<li>
-						<a href="/servers/admin/">Manage Servers...</a>
+						<a href="/servers">Manage Servers...</a>
 					</li>
 				</ul>
 			</li>

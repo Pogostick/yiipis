@@ -62,6 +62,9 @@ ul.footer-menu-top-menu {
 			border: 1px solid #111;
 			overflow:hidden;
 			display:none;
+			-moz-box-shadow:0 0 8px #111111;
+			-webkit-box-shadow:0 0 8px #111111;
+			box-shadow:0 0 8px #111111;
 		}
 
 			ul.footer-menu-top-menu li ul.footer-menu-sub-menu li{

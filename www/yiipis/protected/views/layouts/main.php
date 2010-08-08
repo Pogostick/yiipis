@@ -1,8 +1,6 @@
 <?php
 /**
- * home page layout
- *
- * This is the same as the main page but has different inner layout
+ * main site layout
  *
  * @package 	yiipis
  * @subpackage 	views.layouts
@@ -14,11 +12,27 @@
  * @filesource
  */
 
+//	Determine from whence you've come...
+$_userGreeting = PS::_gs( 'userGreeting' );
+
+if ( ! $_userGreeting && $_referrer = PS::_gr()->getUrlReferrer() )
+{
+	if ( false !== stripos( $_referrer, '.yiiframework.com' ) )
+		$_userGreeting = 'Yii Developer';
+	else if ( false !== stripos( $_referrer, '.github.com' ) )
+		$_userGreeting = 'Github User';
+}
+
+if ( ! $_userGreeting )
+	$_userGreeting = 'Yii-ster';
+
+PS::_ss( 'userGreeting', $_userGreeting );
+
 //	Helper variables
 $_baseUrl = PS::_gbu();
-$_user = Yii::app()->getUser()->isGuest ? null : Yii::app()->getUser();
-$_name = $_user ? $_user->first_name_text : 'Fellow Yii Enthusiast';
-$_link = PS::tag( 'li', array(), $_user ? PS::link( 'logout', 'logout' ) : PS::link( 'login', 'login' ) );
+$_user = PS::_gu()->isGuest ? null : PS::_gu();
+$_name = $_user ? $_user->first_name_text : $_userGreeting;
+$_link = PS::tag( 'li', array(), $_user ? PS::link( 'logout', 'profile/logout' ) : PS::link( 'login', 'profile/login' ) );
 
 //	Let's get the jQuery UI stuff going...
 CPSjqUIWrapper::loadScripts( null, Yii::app()->params['siteTheme'] );
@@ -33,7 +47,8 @@ PS::_rcf( '/css/layouts/_oneColumn.css' );
 //	Site-level self-contained scripts
 PS::_rsf(
 	array(
-		'jquery-plugins/jsTree/_lib/jquery.cookie.js',
+		'jquery-plugins/cookie/jquery.cookie.js',
+		'jquery-plugins/jquery.hoverintent.min.js',
 		'jquery-plugins/jsTree/jquery.jstree.js',
 		'jquery-plugins/rainbows/rainbows.js',
 		'/scripts/site.jquery.js',
@@ -55,8 +70,6 @@ PS::_rs( null, "rainbows.init();", CClientScript::POS_READY );
 			<?php require_once Yii::getPathOfAlias( 'application.views.layouts' ) . DIRECTORY_SEPARATOR . '_header.php'; ?>
 
 			<div id="content-wrapper">
-				
-				<div id="content-navigation"></div>
 
 				<div id="content-column">
 					<?php echo $content; ?>

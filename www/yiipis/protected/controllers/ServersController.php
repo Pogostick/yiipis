@@ -10,7 +10,7 @@ class ServersController extends BaseController
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
+//			'accessControl', // perform access control for CRUD operations
 		);
 	}
 
@@ -116,32 +116,6 @@ class ServersController extends BaseController
 	}
 
 	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('ManagedServer');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new ManagedServer('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['ManagedServer']))
-			$model->attributes=$_GET['ManagedServer'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 */
@@ -169,4 +143,78 @@ class ServersController extends BaseController
 			Yii::app()->end();
 		}
 	}
+
+	/**
+	 * blah
+	 */
+	public function actionIndex( $render = true )
+	{
+		//	Check for our post backs...
+		if ( $this->isAjaxRequest )
+		{
+			if ( $_id = PS::o( $_POST, 'id' ) )
+			{
+				//	Do something
+			}
+
+			CPSLog::error( __METHOD__, 'Invalid request for id ' . $_id );
+			return false;
+		}
+
+		$_page = PS::o( $_REQUEST, 'page', 1 );
+		$_limit = PS::o( $_REQUEST, 'rows', 10 );
+		$_sortColumn = PS::nvl( PS::o( $_REQUEST, 'sidx' ), 'create_date' );
+		$_sortOrder = PS::o( $_REQUEST, 'sord', 'desc' );
+		$_totalPages = 0;
+		$_rows = $_results = $_condition = array();
+		$_searchField = PS::o( $_REQUEST, 'searchField' );
+		$_searchString = PS::o( $_REQUEST, 'searchString' );
+
+		$_crit = new CDbCriteria(
+			array(
+				'order' => 't.' . $_sortColumn . ' ' . $_sortOrder,
+			)
+		);
+
+		$_rows = array();
+
+		if ( $_serverList = ManagedServer::model()->findAll( $_crit ) )
+		{
+			foreach ( $_serverList as $_server )
+			{
+				$_rows[] = array(
+					'id' => $_server->id,
+					'dev_url_text' => $_server->dev_url_text,
+					'url_text' => $_server->url_text,
+				);
+			}
+		}
+
+		$_rowCount = count( $_rows );
+		$_totalPages = ceil( $_rowCount / $_limit );
+		if ( $_page > $_totalPages ) $_page = $_totalPages;
+		$_start = $_limit * $_page - $_limit;
+
+		if ( ! $render )
+		{
+			$this->layout = false;
+
+			$_results = array(
+				'page' => $_page,
+				'total' => $_totalPages,
+				'records' => $_rowCount,
+				'rows' => $_rows,
+			);
+
+			echo json_encode( $_results );
+			return;
+		}
+
+		$this->render( 'index',
+			array(
+				'data' => $_rows,
+			)
+		);
+	}
+
 }

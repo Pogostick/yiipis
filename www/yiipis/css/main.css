@@ -529,3 +529,21 @@ table.detail-view th {
 table.detail-view .null {
 	color:darkred !important;
 }
+
+.ui-jqgrid-title {
+	text-shadow:-1px -1px 0 #000000;
+	font-size:23px;
+	margin:0.25em auto;
+	padding-bottom:5px;
+	text-align:center;
+	width:100%;
+}
+
+div.form input[type="text"].openid {
+	background:url("/images/icons/openid-16x16.gif") no-repeat scroll 2px 2px #FFFFFF;
+	padding-left:25px;
+}
+
+div#frmLogin.form {
+	width:768px;
+}
