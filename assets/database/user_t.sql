@@ -1,0 +1,22 @@
+CREATE TABLE `user_t` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `email_addr_text` VARCHAR(255) NOT NULL,
+  `password_text` VARCHAR(255) NULL,
+  `first_name_text` VARCHAR(60) NULL,
+  `last_name_text` VARCHAR(60) NULL,
+  `user_name_text` VARCHAR(60) NULL,
+  `user_type_code` INT(11) NULL,
+  `blocked_ind` TINYINT(4) NOT NULL DEFAULT 0,
+  `allow_email_ind` TINYINT(4) DEFAULT 1,
+  `group_id` INT(11) NULL,
+  `validation_text` VARCHAR(255) NULL,
+  `create_date` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `last_visit_date` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `validation_date` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `lmod_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_user_type` (`user_type_code`),
+  KEY `user_block_group` (`group_id`,`blocked_ind`),
+  KEY `user_username` (`user_name_text`),
+  KEY `user_email` (`email_addr_text`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8
