@@ -14,7 +14,6 @@
  */
 
 //	Include files...
-Yii::app()->clientScript->registerCssFile( '/css/form.css' );
 $_sSystemName = Yii::app()->params['systemName'];
 
 if ( ! isset( $type ) )

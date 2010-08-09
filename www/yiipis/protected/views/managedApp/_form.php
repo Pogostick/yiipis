@@ -19,7 +19,6 @@
  * @filesource
  * 
  */
-PS::_rcf( '/css/form.css' );
 
 //	I don't like this, I prefer bold-faced labels
 PS::$afterRequiredLabel = null;
@@ -36,7 +35,6 @@ PS::$afterRequiredLabel = null;
 			'uiStyle' => PS::UI_JQUERY,
 
 			'cssFiles' => array( 
-				'/css/form.css',
 				//	Add additional css here
 			),
 	

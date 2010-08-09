@@ -32,13 +32,13 @@ PS::_ss( 'userGreeting', $_userGreeting );
 $_baseUrl = PS::_gbu();
 $_user = PS::_gu()->isGuest ? null : PS::_gu();
 $_name = $_user ? $_user->first_name_text : $_userGreeting;
-$_link = PS::tag( 'li', array(), $_user ? PS::link( 'logout', 'profile/logout' ) : PS::link( 'login', 'profile/login' ) );
+$_link = PS::tag( 'li', array(), $_user ? PS::link( 'logout', '/profile/logout' ) : PS::link( 'login', '/profile/login' ) );
 
 //	Let's get the jQuery UI stuff going...
 CPSjqUIWrapper::loadScripts( null, Yii::app()->params['siteTheme'] );
 
 //	Site-level css
-PS::_rcf( '/jquery-plugins/rainbows/rainbows.css', null, true );
+PS::_rcf( 'jquery-plugins/rainbows/rainbows.css', null, true );
 
 //	Page-level css. Our one column layout css file.
 //	You can change the inner layout of the page by changing these styles

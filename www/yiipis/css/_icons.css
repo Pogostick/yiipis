@@ -74,6 +74,18 @@
 		background-image:url(/images/icons/menu-icon-radio-closed.png);
 	}
 
+	.yiipis-icon-star {
+		background:url('/images/icons/star.png') top left no-repeat !important;
+	}
+
+	.yiipis-icon-star-empty {
+		background:url('/images/icons/star-empty.png') top left no-repeat;
+	}
+
+	.yiipis-icon-exclamation {
+		background:url('/images/icons/exclamation.png') top left no-repeat;
+	}
+
 /**
 * Basic icon
 */
@@ -85,11 +97,30 @@
 	position:relative;
 }
 
+.yiipis-icon-32 {
+	width:32px;
+	height:32px;
+	display:inline-block;
+	position:relative;
+}
+
 .yiipis-icon-tiny {
 	width:8px;
 	height:8px;
 	display:inline-block;
 	position:relative;
+}
+
+.yiipis-icon-after-input {
+	margin-bottom:5px;
+	margin-left:5px;
+	vertical-align:middle;
+}
+
+.yiipis-icon-error-summary {
+	display:inline-block;
+	margin-top:8px;
+	margin-left:8px;
 }
 
 /**

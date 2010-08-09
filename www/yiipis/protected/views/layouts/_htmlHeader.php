@@ -23,6 +23,9 @@
 		#page {display:table;height:100%}
 	</style>
 <![endif]-->
+<!--[if IE 8]>
+	<link rel="stylesheet" type="text/css" href="<?php echo $_baseUrl; ?>/css/ie8.css" />
+<![endif]-->
 	<link rel="shortcut icon" href="http://www.yiipis.com/favicon.ico" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>

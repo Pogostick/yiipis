@@ -45,12 +45,12 @@ div.form input,
 div.form textarea,
 div.form select
 {
-	margin: 0.2em 0 0.5em 0;
+	margin: 0.2em 0 0 0;
 	padding:2px;
 }
 
 div.form input[type="text"] {
-	border:1px solid #b8b8b8;
+/*	border:1px solid #b8b8b8; */
 	margin-bottom:0px;
 }
 
@@ -96,6 +96,12 @@ div.form .hint
 	padding: 0;
 	color: #999;
 	font-size:11px;
+}
+
+.hint-link
+{
+	color: #999 !important;
+	font-size:11px !important;
 }
 
 div.form .note
