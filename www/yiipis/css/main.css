@@ -70,12 +70,11 @@ a {
 }
 
 p {
-    color: #777;
-    color: #999;
-    display: block;
-    font-size: 11px;
-    font-size: 15px;
-    padding: 0 5px 5px;
+	color:#999999;
+	display:block;
+	font-size:15px;
+	line-height:100%;
+	padding:0 5px 10px;
 }
 
 p a {
@@ -161,6 +160,10 @@ div#content-wrapper {
 
 	div#content-column div.ui-edit-container {
 		margin-top:10px;
+		/* Round corners of containers by default */
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		border-radius: 8px;
 	}
 
 div.flash-error
@@ -241,22 +244,12 @@ div.search-form
 	left:0;
 	top:0;
 	width:100%;
-	position:absolute;
+	/* Change position to "absolute" to have shadow move up with a scrolled page */
+	position:fixed;
 }
 
 .curtain.top-short {
 	height:20px !important;
-}
-
-.curtain.reflection {
-	background: url(/images/reflection.png) repeat-x 50% 100%;
-	bottom: 0px;
-	display: none;
-	height: 94px;
-	left: 0px;
-	position: absolute;
-	top: auto;
-	width: 100%;
 }
 
 /*
@@ -564,24 +557,34 @@ div.form {
 	padding-bottom:5px !important;
 }
 
-div#frmLogin.form {
+div.form-short {
+	margin:10px auto 0;
 	width:768px;
 }
 
-div.form div.row label.ps-validate-error {
-	color:#EF8D0A !important;
-	display:inline-block;
-	margin-left:160px !important;
-	margin-top:0 !important;
-	padding-top:0 !important;
-	white-space:nowrap !important;
-	text-align:left !important;
+div.yiipis-form div.ps-submit-button-bar {
+	margin-top:25px !important;
+	width:96%;
+}
+
+div.form.yiipis-form {
+	width:768px;
+}
+
+div.form label.ps-validate-error {
+	color:#CC0033 !important;
+	display:block;
+	margin-left:160px;
+	margin-top:0;
+	padding-top:0;
+	white-space:nowrap;
+	text-align:left;
 }
 
 div.form div.row p.hint {
 	color:#999999;
 	font-size:11px;
-	margin:0 0 0 160px;
+	margin:2px 0 0 160px;
 	padding:0;
 	width:65%;
 }
@@ -616,4 +619,60 @@ div.ps-error-summary.ui-state-error ul li {
 
 div.ps-error-summary.ui-state-error ul.hide-bg li {
 	background:none !important;
+}
+
+div.yiipis-form div.agreement {
+	position:relative;
+	text-align:center;
+	vertical-align:top;
+	padding-top:10px;
+	text-align:center;
+}
+
+div.yiipis-form div.agreement label {
+	color:#DAD2D5;
+	font-size:11px;
+	vertical-align:middle;
+	width:auto;
+	margin-left:0px !important;
+	text-align:center;
+}
+
+div.yiipis-form div.agreement label.error
+div.yiipis-form div.agreement label.ps-validate-error {
+	clear: both;
+	display:block;
+}
+
+div.yiipis-form .agreement input[type="checkbox"] {
+	vertical-align: middle;
+	margin:0px 10px 0px 0px;
+	width:auto;
+}
+
+div.yiipis-form hr {
+	border:medium none !important;
+	height:30px;
+}
+
+	div.yiipis-form hr.gold {
+		background:url("/images/hr-gold.gif") no-repeat scroll center center transparent;
+	}
+
+	div.yiipis-form hr.green {
+		background:url("/images/hr-green.gif") no-repeat scroll center center transparent;
+	}
+
+	div.yiipis-form hr.purple {
+		background:url("/images/hr-purple.gif") no-repeat scroll center center transparent;
+	}
+
+	div.yiipis-form hr.red {
+		background:url("/images/hr-red.gif") no-repeat scroll center center transparent;
+	}
+
+div.form .yiipis-form input.ps-text-display {
+	font-size:13px;
+	color:#fff;
+	width:auto;
 }

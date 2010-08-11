@@ -10,7 +10,7 @@ $_sLogPath = '/var/log/yii';
 $_sLogName = 'yiipis_log';
 
 //	Set proper db
-if ( false !== stripos( $_SERVER['SERVER_ADDR'], '192.168.' ) )
+if ( false === stripos( $_SERVER['SERVER_ADDR'], '192.168.' ) )
 	$_sDBHost = 'psdb001.appbarn.com';
 
 //	Our configuration
@@ -61,7 +61,7 @@ return array(
 			'urlFormat' => 'path',
 			'showScriptName' => false,
 			'rules' => array(
-//				'<view:\w+>' => 'site/_static',
+				'<view:\w+>' => 'default/_static',
 			),
 		),
 

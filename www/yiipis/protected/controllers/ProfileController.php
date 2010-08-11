@@ -125,17 +125,60 @@ class ProfileController extends BaseController
 		{
 			//	Is user in database?
 			if ( $_user = User::model()->find( 'email_addr_text = :email_addr_text', array( ':email_addr_text' => $_oid->getAuthId() ) ) )
-				echo 'Welcome back ' . $_oid->getAuthId() . ' (' . $_user->email_addr_text . ')';
+			{
+				$this->redirect('/');
+				//echo 'Welcome back ' . $_oid->getAuthId() . ' (' . $_user->email_addr_text . ')';
+				return;
+			}
 			else
 			{
 				//	Create new identity...
-				echo 'create a new id for : ' . $_oid->getAuthId();
+				return $this->actionRegister( true, $_oid, $_REQUEST );
 			}
 		}
+
+		//	No clue what is going on here. Just head back to login form
+		$this->actionLogin();
 	}
 
-	public function actionRegister()
+	/***
+	 * Registration action
+	 * 
+	 * @var boolean True if calling from a completed OpenID authentication
+	 * @var OpenIDConsumer The consumer object used in the authentication
+	 */
+	public function actionRegister( $fromOpenID = false, $consumer = null, $request = null )
 	{
+		$_model = new User();
+
+		if ( $this->isPostRequest )
+		{
+			if ( $this->saveModel( $_model, $_POST, '/' ) )
+				return;
+
+			$_model->addError( 'form', 'Problemas de Tu!' );
+		}
+
+		if ( $fromOpenID )
+		{
+			$_model->openid_url_text = $_model->openid_claimed_id_text = filter_var( PS::o( $request, 'openid_claimed_id' ), FILTER_SANITIZE_STRING );
+			$_model->openid_identity_text = filter_var( PS::o( $request, 'openid_identity' ), FILTER_SANITIZE_STRING );
+		}
+
+		$this->render( 'register', array( 'model' => $_model, 'fromOpenID' => $fromOpenID, 'consumer' => $consumer, 'request' => $request ) );
+	}
+
+	public function actionGetHostMeta()
+	{
+		$this->layout = false;
+		$this->render( 'hostMeta' );
+	}
+
+	public function actionDescribe()
+	{
+		$this->layout = false;
+		if ( $_uri = filter_input( INPUT_GET, 'uri', FILTER_SANITIZE_STRING ) )
+			$this->render( 'describe', array( 'uri' => $_uri ) );
 	}
 
 	//********************************************************************************

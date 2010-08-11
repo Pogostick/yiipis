@@ -31,6 +31,7 @@ require_once $_oidBase . 'Consumer.php';
 require_once $_oidBase . 'FileStore.php';
 require_once $_oidBase . 'SReg.php';
 require_once $_oidBase . 'PAPE.php';
+require_once Yii::getPathOfAlias( 'application.extensions.auth.openID.Auth.Yadis' ) . DIRECTORY_SEPARATOR . 'Email.php';
 
 //	Make sure we have a session...
 session_start();
@@ -82,8 +83,19 @@ class OpenIDConsumer extends CPSComponent
 	protected $_openIDConsumer;
 	public function getConsumer() { return $this->_openIDConsumer; }
 
+	/***
+	 * @var boolean Enable {@link http://eaut.org/ Email Address to URL Translation (EAUT)}.
+	 */
+	protected $_useEAUT = true;
+	public function getUseEAUT() { return $this->_useEAUT; }
+	public function setUseEAUT( $value ) { $this->_useEAUT = $value; }
+
+	/**
+	 * @var array Available PAPE policies
+	 */
 	protected $_policyList;
-	
+	public function getPolicyList() { return $this->_policyList; }
+
 	/**
 	 * @var string The message accompanying the auth result upon completion
 	 */
@@ -149,7 +161,7 @@ class OpenIDConsumer extends CPSComponent
 		$this->_authMessage = null;
 		
 		$_sregRequest = Auth_OpenID_SRegRequest::build(
-			array( 'email', 'nickname' ),
+			array( 'email' ),
 			array_keys( $Auth_OpenID_sreg_data_fields )
 		);
 		

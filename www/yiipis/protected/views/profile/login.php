@@ -90,25 +90,11 @@ PS::_rs( null,<<<JAVASCRIPT
 JAVASCRIPT
 , CClientScript::POS_READY );
 
-//	Add a submit handler to the page to adjust validation based on input...
-PS::_rc( null,<<<CSS
-	div#content-column div.ui-edit-container {
-		margin:10px auto 0;
-		width:768px;
-	}
-
-	#frmLogin .ps-submit-button-bar {
-		margin-top:25px !important;
-		width:96%;
-	}
-CSS
-);
-
 $_fields = array(
 	array( 'html', '<h1 style="margin-bottom:25px;text-align:center;">Login, stay awhile...</h1>' ),
 
-	array( PS::TEXT, 'userName', array( 'class' => 'email required', '_appendHtml' => PS::tag( 'span', array( 'class' => 'yiipis-icon yiipis-icon-after-input yiipis-icon-star yiipis-icon-star-empty site-login', 'value' => $form->userName ), '' ) ) ),
-	array( PS::PASSWORD, 'password', array( 'class' => 'ps-short required', 'hint' => '<a href="/profile/resetPassword">Forgot your password?</a>' ) ),
+	array( PS::TEXT, 'userName', array( 'class' => 'email required', 'autocomplete' => 'off', '_appendHtml' => PS::tag( 'span', array( 'class' => 'yiipis-icon yiipis-icon-after-input yiipis-icon-star yiipis-icon-star-empty site-login', 'value' => $form->userName ), '' ) ) ),
+	array( PS::PASSWORD, 'password', array( 'class' => 'ps-short required', 'autocomplete' => 'off', 'hint' => '<a href="/profile/resetPassword">Forgot your password?</a>' ) ),
 	array( PS::CHECK, 'rememberMe', array( 'style' => 'vertical-align:middle;margin:0 auto;margin-right:5px;', '_appendHtml' => '&nbsp;<span style="font-size:10pt;">Not recommended if you are using a public computer.</span>' ) ),
 
 	array( 'html', '<div><h1 style="margin:15px 0;width:100%;text-align:center;">Or</h1></div>' ),
@@ -125,6 +111,8 @@ $_fields = array(
 		'label' => 'Sign in with OpenID&nbsp;<span><a target="_blank" class="hint-link" href="http://openid.net/what">What is OpenID?</a></span>')
 	),
 
+	array( 'html', '<div><h1 style="margin:15px 0;width:100%;text-align:center;">Or<br /><a href="/profile/register/">Register!</a></h1></div>' ),
+
 	array( 'html', PS::hiddenField( 'is-open-id', '0', array( 'id' => 'is-open-id' ) ) ),
 	array( 'submit', array( 'label' => 'Login', 'icon' => 'person' ) ),
 );
@@ -136,7 +124,8 @@ $_arFormOpts = array(
 	'style' => 'width:768px;',
 
 	'formHeader' => null,
-	'formClass' => 'form',
+	'formClass' => 'form yiipis-form',
+	'formContainerClass' => PS::STD_JQUI_FORM_CONTAINER_CLASS . ' form-short',
 
 	//	Our model
 	'formModel' => $form,

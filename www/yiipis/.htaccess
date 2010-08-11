@@ -1,6 +1,9 @@
 #IndexIgnore */*
 RewriteEngine on
 
+RewriteRule ^\.well-known/host-meta$	/profile/getHostMeta [L]
+RewriteRule ^describe(.*+)$		/profile/describe$1
+
 # if a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

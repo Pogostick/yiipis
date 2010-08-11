@@ -93,24 +93,9 @@ class User extends BaseModel
 			array( 'user_name_text', 'length', 'max' => 30 ),
 			array( 'password_text', 'length', 'max' => 30 ),
 			array( 'first_name_text', 'length', 'max' => 128 ),
-			array( 'mid_name_text', 'length', 'max' => 128 ),
 			array( 'last_name_text', 'length', 'max' => 128 ),
-			array( 'mail_address_1_text', 'length', 'max' => 255 ),
-			array( 'mail_address_2_text', 'length', 'max' => 255 ),
-			array( 'mail_city_text', 'length', 'max' => 128 ),
-			array( 'mail_postal_code_text', 'length', 'max' => 20 ),
-			array( 'comp_name_text', 'length', 'max' => 128 ),
 			array( 'email_addr_text', 'length', 'max' => 255 ),
-			array( 'alt_email_addr_text', 'length', 'max' => 255 ),
-			array( 'phone_nbr_text', 'length', 'max' => 30 ),
-			array( 'alt_phone_nbr_text', 'length', 'max' => 30 ),
-			array( 'hash_text', 'length', 'max' => 40 ),
-			array( 'company_url_text', 'length', 'max' => 255 ),
-			array( 'valid_email_hash_text', 'length', 'max' => 40 ),
-			array( 'api_key_text', 'length', 'max' => 255 ),
-			array( 'api_secret_key_text', 'length', 'max' => 255 ),
-			array( ( $this->user_type_code == self::PUBLISHER ? null : 'company_url_text,' ) . 'user_name_text, password_text, first_name_text, last_name_text, mail_address_1_text, mail_city_text, mail_state_code, mail_postal_code_text, email_addr_text, phone_nbr_text', 'required' ),
-			array( 'user_type_code, mail_state_code, mail_country_code, active_ind, approve_ind, valid_ind, time_zone_code', 'numerical', 'integerOnly' => true ),
+			array( 'password_text', 'required' ),
 		);
 	}
 
@@ -121,8 +106,6 @@ class User extends BaseModel
 	{
 		return array(
 			'roles' => array( self::HAS_MANY, 'UserRoleAssign', 'user_id' ),
-			'sites' => array( self::HAS_MANY, 'PublisherSite', 'user_id' ),
-			'billingInfo' => array( self::HAS_ONE, 'UserBillingInfo', 'user_id' ),
 		);
 	}
 
@@ -134,11 +117,11 @@ class User extends BaseModel
 		return array(
 			'id' => 'Id',
 			'user_type_code' => 'Account Type',
-			'user_name_text' => 'User Name',
+			'user_name_text' => 'Nickname',
+			'openid_url_text' => 'OpenID URL',
 			'password_text' => 'Password',
 			'confirmPassword' => 'Password (again)',
 			'first_name_text' => 'First Name',
-			'mid_name_text' => 'Middle Name',
 			'last_name_text' => 'Last Name',
 			'mail_address_1_text' => 'Address',
 			'mail_address_2_text' => ' ',
@@ -179,17 +162,8 @@ class User extends BaseModel
 	{
 		if ( $this->isNewRecord )
 		{
-			//	Generate hash codes for this user...
-			if ( ! $this->hash_text ) $this->hash_text = CPSHash::hash( $this->user_name_text );
-			if ( ! $this->valid_email_hash_text ) $this->valid_email_hash_text = CPSHash::generate( 32 );
-			if ( ! $this->api_key_text )
-			{
-				$this->api_key_text = CPSHash::hash( CPSHash::generate( 32 ) );
-				$this->api_secret_key_text = CPSHash::hash( $this->hash_text . $this->api_key_text );
-			}
-
-			//	Copy email address into user name
-			$this->user_name_text = $this->email_addr_text;
+			if ( null === $this->email_addr_text )
+				$this->email_addr_text = $this->openid_url_text;
 		}
 
 		return parent::beforeValidate( $oScenario );
@@ -201,27 +175,11 @@ class User extends BaseModel
 	*/
 	public function afterSave()
 	{
-		if ( ! $this->m_bIgnoreUpdate )
+		//	If this was a new user, send a welcome email...
+		if ( $this->isNewRecord )
 		{
-			//	If this was a new user, send a welcome email...
-			if ( $this->isNewRecord )
-			{
-				$_arData = array(
-					'userId' => $this->id,
-				);
-
-				Yii::app()->user->setState( 'unverifiedUserId', $this->id );
-				JobQueue::queue( JobQueue::SYS_WELCOME_EMAIL, 'sendWelcomeEmail', $_arData );
-			}
-
-			//	Add to ancillary systems...
-			$_bDidChange = $this->didChange( $this->getAttributes() );
-
-			if ( $this->isNewRecord || ! $this->whmcs_client_id || ! $this->ox_obj_id || $_bDidChange )
-			{
-				$this->updateBillingSystem();
-				JobQueue::queue( JobQueue::SYS_USER_UPDATE, 'Update User', $this->id, null, true );
-			}
+			PS::_ss( 'unverifiedUserId', $this->id );
+//			JobQueue::queue( JobQueue::SYS_WELCOME_EMAIL, 'sendWelcomeEmail', array( 'userId' => $this->id ) );
 		}
 
 		return parent::afterSave();

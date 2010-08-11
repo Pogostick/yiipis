@@ -67,7 +67,7 @@ $(function(){
 			_footer.fadeOut('fast',function(){
 				_header.animate({marginTop: "-200px"},200,function(){
 					$('#header-current-page').animate({right:'140px'},500,function(){
-						_menu.fadeIn();
+						_menu.fadeIn('slow');
 					});
 
 					$('div.curtain.top').css({height:'20px'}).fadeIn();
