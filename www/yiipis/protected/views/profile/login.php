@@ -162,4 +162,3 @@ $_arFormOpts = array(
 
 //	Set our fields and create the form.
 CPSForm::create( $_arFormOpts );
-?>
