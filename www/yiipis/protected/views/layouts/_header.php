@@ -24,8 +24,8 @@
 PS::_rcf( '/css/layouts/_header.css' );
 PS::_rsf( '/scripts/site.header.js' );
 ?>
-<!-- some cool curtains if you have a cool browser -->
-<div class="reflection curtain" style="top: 4727px; "></div>
+
+<!-- A cool shadow for the top of the page-->
 <div class="curtain top"></div>
 
 <div id="header">

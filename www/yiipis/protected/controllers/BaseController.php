@@ -73,10 +73,14 @@ class BaseController extends CPSController
 	 */
 	public function actions()
 	{
-		return array(
-			'_static' => array(
-				'class' => 'CViewAction',
+		return array_merge(
+			array(
+				'_static' => array(
+					'class' => 'CViewAction',
+					'basePath' => '_static',
+				),
 			),
+			parent::actions()
 		);
 	}
 
